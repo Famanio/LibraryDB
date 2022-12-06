@@ -45,10 +45,7 @@ namespace LibraryDB.DB
                     Storage DBRow = new Storage
                     {
                         ID = reader.GetInt32(0),
-                        storageRack = reader.GetString(1),
-                        storageRow = reader.GetString(2),
-                        storageShelf = reader.GetString(3),
-                        storageStock = reader.GetString(4)
+                        storageLocation = reader.GetString(1)
                     };
                     return DBRow;
                 }

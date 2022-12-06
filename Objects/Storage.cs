@@ -9,9 +9,6 @@ namespace LibraryDB.Objects
     internal class Storage : IDBObject
     {
         public int ID { get; set; }
-        public string storageRack { get; set; }
-        public string storageRow { get; set; }
-        public string storageShelf { get; set; }
-        public string storageStock { get; set; }
+        public string storageLocation { get; set; }
     }
 }
