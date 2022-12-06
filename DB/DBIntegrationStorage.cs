@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace LibraryDB.DB
 {
-    internal class DBInteractionGenre : DBInteraction<Genre>
+    internal class DBIntegrationStorage : DBInteraction<Storage>
     {
         public override DataTable getAll()
         {
@@ -27,12 +27,12 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка загрузки: {ex}","Ошибка сервера",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show($"Возникла ошибка загрузки: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }
 
-        public override Genre getRow(int ID)
+        public override Storage getRow(int ID)
         {
             try
             {
@@ -42,10 +42,13 @@ namespace LibraryDB.DB
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 using (MySqlDataReader reader = sqlcmd.ExecuteReader())
                 {
-                    Genre DBRow = new Genre
+                    Storage DBRow = new Storage
                     {
                         ID = reader.GetInt32(0),
-                        genreName = reader.GetString(1)
+                        storageRack = reader.GetString(1),
+                        storageRow = reader.GetString(2),
+                        storageShelf = reader.GetString(3),
+                        storageStock = reader.GetString(4)
                     };
                     return DBRow;
                 }
@@ -79,7 +82,7 @@ namespace LibraryDB.DB
             }
         }
 
-        public override void add(Genre item)
+        public override void add(Storage item)
         {
             try
             {
@@ -97,7 +100,7 @@ namespace LibraryDB.DB
             }
         }
 
-        public override void update(Genre item)
+        public override void update(Storage item)
         {
             try
             {

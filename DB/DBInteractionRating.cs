@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace LibraryDB.DB
 {
-    internal class DBInteractionGenre : DBInteraction<Genre>
+    internal class DBInteractionRating : DBInteraction<Rating>
     {
         public override DataTable getAll()
         {
@@ -27,12 +27,12 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка загрузки: {ex}","Ошибка сервера",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show($"Возникла ошибка загрузки: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }
 
-        public override Genre getRow(int ID)
+        public override Rating getRow(int ID)
         {
             try
             {
@@ -42,10 +42,10 @@ namespace LibraryDB.DB
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 using (MySqlDataReader reader = sqlcmd.ExecuteReader())
                 {
-                    Genre DBRow = new Genre
+                    Rating DBRow = new Rating
                     {
                         ID = reader.GetInt32(0),
-                        genreName = reader.GetString(1)
+                        ageRating = reader.GetString(1)
                     };
                     return DBRow;
                 }
@@ -79,7 +79,7 @@ namespace LibraryDB.DB
             }
         }
 
-        public override void add(Genre item)
+        public override void add(Rating item)
         {
             try
             {
@@ -97,7 +97,7 @@ namespace LibraryDB.DB
             }
         }
 
-        public override void update(Genre item)
+        public override void update(Rating item)
         {
             try
             {

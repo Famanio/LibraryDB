@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace LibraryDB.DB
 {
-    internal class DBInteractionGenre : DBInteraction<Genre>
+    internal class DBInteractionReader : DBInteraction<Reader>
     {
         public override DataTable getAll()
         {
@@ -27,12 +27,12 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка загрузки: {ex}","Ошибка сервера",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show($"Возникла ошибка загрузки: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }
 
-        public override Genre getRow(int ID)
+        public override Reader getRow(int ID)
         {
             try
             {
@@ -42,10 +42,16 @@ namespace LibraryDB.DB
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 using (MySqlDataReader reader = sqlcmd.ExecuteReader())
                 {
-                    Genre DBRow = new Genre
+                    Reader DBRow = new Reader
                     {
                         ID = reader.GetInt32(0),
-                        genreName = reader.GetString(1)
+                        surname = reader.GetString(1),
+                        name = reader.GetString(2),
+                        patronymic = reader.GetString(3),
+                        dateOfBirth = reader.GetDateTime(4).ToString(),
+                        homeAddress = reader.GetString(5),
+                        phoneNumber = reader.GetString(6),
+                        regDate = reader.GetString(7)
                     };
                     return DBRow;
                 }
@@ -79,7 +85,7 @@ namespace LibraryDB.DB
             }
         }
 
-        public override void add(Genre item)
+        public override void add(Reader item)
         {
             try
             {
@@ -97,7 +103,7 @@ namespace LibraryDB.DB
             }
         }
 
-        public override void update(Genre item)
+        public override void update(Reader item)
         {
             try
             {

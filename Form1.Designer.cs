@@ -92,9 +92,7 @@
             "Жанры",
             "Издания",
             "Возрастной рейтинг",
-            "Размещение",
-            "Книги (БД)",
-            "Выдача книг (БД)"});
+            "Размещение"});
             this.selectTableCB.Location = new System.Drawing.Point(143, 2);
             this.selectTableCB.Name = "selectTableCB";
             this.selectTableCB.Size = new System.Drawing.Size(196, 28);

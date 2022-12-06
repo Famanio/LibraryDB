@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace LibraryDB.DB
 {
-    internal class DBInteractionGenre : DBInteraction<Genre>
+    internal class DBInteractionBooks : DBInteraction<Books>
     {
         public override DataTable getAll()
         {
@@ -27,12 +27,12 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка загрузки: {ex}","Ошибка сервера",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show($"Возникла ошибка загрузки: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }
 
-        public override Genre getRow(int ID)
+        public override Books getRow(int ID)
         {
             try
             {
@@ -42,10 +42,21 @@ namespace LibraryDB.DB
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 using (MySqlDataReader reader = sqlcmd.ExecuteReader())
                 {
-                    Genre DBRow = new Genre
+                    Books DBRow = new Books
                     {
                         ID = reader.GetInt32(0),
-                        genreName = reader.GetString(1)
+                        genre = reader.GetString(1),
+                        edition = reader.GetString(2),
+                        rating = reader.GetString(3),
+                        storage = reader.GetString(4),
+                        ISBN = reader.GetString(5),
+                        publisher = reader.GetString(6),
+                        author = reader.GetString(7),
+                        bookName = reader.GetString(8),
+                        pubDate = reader.GetDateTime(9).ToString(),
+                        numOfPages = reader.GetInt32(10),
+                        cost = reader.GetFloat(11),
+                        amount = reader.GetInt32(12)
                     };
                     return DBRow;
                 }
@@ -79,7 +90,7 @@ namespace LibraryDB.DB
             }
         }
 
-        public override void add(Genre item)
+        public override void add(Books item)
         {
             try
             {
@@ -97,7 +108,7 @@ namespace LibraryDB.DB
             }
         }
 
-        public override void update(Genre item)
+        public override void update(Books item)
         {
             try
             {

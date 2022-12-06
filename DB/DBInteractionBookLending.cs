@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace LibraryDB.DB
 {
-    internal class DBInteractionGenre : DBInteraction<Genre>
+    internal class DBInteractionBookLending : DBInteraction<BookLending>
     {
         public override DataTable getAll()
         {
@@ -27,12 +27,12 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка загрузки: {ex}","Ошибка сервера",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show($"Возникла ошибка загрузки: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }
 
-        public override Genre getRow(int ID)
+        public override BookLending getRow(int ID)
         {
             try
             {
@@ -42,10 +42,14 @@ namespace LibraryDB.DB
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 using (MySqlDataReader reader = sqlcmd.ExecuteReader())
                 {
-                    Genre DBRow = new Genre
+                    BookLending DBRow = new BookLending
                     {
                         ID = reader.GetInt32(0),
-                        genreName = reader.GetString(1)
+                        librarian = reader.GetString(1),
+                        reader = reader.GetString(2),
+                        book = reader.GetString(3),
+                        dateOfIssue = reader.GetDateTime(4).ToString(),
+                        returnDate = reader.GetDateTime(5).ToString()
                     };
                     return DBRow;
                 }
@@ -79,7 +83,7 @@ namespace LibraryDB.DB
             }
         }
 
-        public override void add(Genre item)
+        public override void add(BookLending item)
         {
             try
             {
@@ -97,7 +101,7 @@ namespace LibraryDB.DB
             }
         }
 
-        public override void update(Genre item)
+        public override void update(BookLending item)
         {
             try
             {

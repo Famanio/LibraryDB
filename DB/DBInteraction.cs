@@ -15,7 +15,7 @@ namespace LibraryDB.DB
 
         public abstract DataTable getAll();
         public abstract T getRow(int ID);
-        public abstract void search (string query);
+        public abstract DataTable search (string query);
         public abstract void add (T item);
         public abstract void update (T item);
         public abstract void delete(int ID);
