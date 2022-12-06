@@ -84,6 +84,17 @@
             this.selectTableCB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.selectTableCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.selectTableCB.FormattingEnabled = true;
+            this.selectTableCB.Items.AddRange(new object[] {
+            "Выдача книг",
+            "Книги",
+            "Читатели",
+            "Библиотекари",
+            "Жанры",
+            "Издания",
+            "Возрастной рейтинг",
+            "Размещение",
+            "Книги (БД)",
+            "Выдача книг (БД)"});
             this.selectTableCB.Location = new System.Drawing.Point(143, 2);
             this.selectTableCB.Name = "selectTableCB";
             this.selectTableCB.Size = new System.Drawing.Size(196, 28);
