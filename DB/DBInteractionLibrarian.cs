@@ -17,7 +17,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = "SELECT lib_id AS 'ID библиотекаря', surname AS 'Фамилия', name AS 'Имя', patronymic AS 'Отчество' FROM Librarian";
+                string sqlcmdString = "SELECT lib_id AS 'ID библиотекаря', surname AS 'Фамилия', name AS 'Имя', patronymic AS 'Отчество' FROM Librarian ORDER BY lib_id";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();
@@ -66,7 +66,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = $"SELECT * FROM Librarian WHERE LOCATE(\"{query}\", CONCAT_WS(\" \", lib_id, surname, name, patronymic)) >= 1";
+                string sqlcmdString = $"SELECT * FROM Librarian WHERE LOCATE(\"{query}\", CONCAT_WS(\" \", lib_id, surname, name, patronymic)) >= 1 ORDER BY lib_id";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();

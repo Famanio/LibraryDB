@@ -18,7 +18,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = "SELECT reader_id AS 'ID читателя', surname AS 'Фамилия', name AS 'Имя', patronymic AS 'Отчество', DATE_FORMAT(date_of_birth, '%d.%m.%Y') AS 'Дата рождения', home_address AS 'Адрес проживания', phone_num AS 'Номер телефона', DATE_FORMAT(reg_date, '%d.%m.%Y') AS 'Дата регистрации' FROM Reader"; 
+                string sqlcmdString = "SELECT reader_id AS 'ID читателя', surname AS 'Фамилия', name AS 'Имя', patronymic AS 'Отчество', DATE_FORMAT(date_of_birth, '%d.%m.%Y') AS 'Дата рождения', home_address AS 'Адрес проживания', phone_num AS 'Номер телефона', DATE_FORMAT(reg_date, '%d.%m.%Y') AS 'Дата регистрации' FROM Reader ORDER BY reader_id"; 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();
@@ -71,7 +71,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = $"SELECT SELECT reader_id AS 'ID читателя', surname AS 'Фамилия', name AS 'Имя', patronymic AS 'Отчество', DATE_FORMAT(date_of_birth, '%d.%m.%Y') AS 'Дата рождения', home_address AS 'Адрес проживания', phone_num AS 'Номер телефона', DATE_FORMAT(reg_date, '%d.%m.%Y') AS 'Дата регистрации' FROM Reader WHERE LOCATE(\"{query}\", CONCAT_WS(\" \", reader_id, surname, name, patronymic, DATE_FORMAT(date_of_birth, '%d.%m.%Y'), home_address, phone_num, DATE_FORMAT(reg_date, '%d.%m.%Y'))) >= 1"; //запрос поиска или соотв процдура
+                string sqlcmdString = $"SELECT reader_id AS 'ID читателя', surname AS 'Фамилия', name AS 'Имя', patronymic AS 'Отчество', DATE_FORMAT(date_of_birth, '%d.%m.%Y') AS 'Дата рождения', home_address AS 'Адрес проживания', phone_num AS 'Номер телефона', DATE_FORMAT(reg_date, '%d.%m.%Y') AS 'Дата регистрации' FROM Reader WHERE LOCATE(\"{query}\", CONCAT_WS(\" \", reader_id, surname, name, patronymic, DATE_FORMAT(date_of_birth, '%d.%m.%Y'), home_address, phone_num, DATE_FORMAT(reg_date, '%d.%m.%Y'))) >= 1 ORDER BY reader_id";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();

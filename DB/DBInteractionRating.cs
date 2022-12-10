@@ -17,7 +17,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = "SELECT rating_id AS 'ID записи', age_rating AS 'Возрастной рейтинг' FROM Rating";
+                string sqlcmdString = "SELECT rating_id AS 'ID записи', age_rating AS 'Возрастной рейтинг' FROM Rating ORDER BY rating_id";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();
@@ -64,7 +64,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = $"SELECT * FROM Rating WHERE LOCATE(\"{query}\", CONCAT_WS(\" \", rating_id, age_rating)) >= 1;";
+                string sqlcmdString = $"SELECT * FROM Rating WHERE LOCATE(\"{query}\", CONCAT_WS(\" \", rating_id, age_rating)) >= 1 ORDER BY rating_id";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();
@@ -85,7 +85,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = $"INSERT INTO Rating (rating_id, age_rating) VALUES ({item.ID}, '{item.ageRating}')";
+                string sqlcmdString = $"INSERT INTO Rating (rating_id, age_rating) VALUES ('{item.ID}', '{item.ageRating}')";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();

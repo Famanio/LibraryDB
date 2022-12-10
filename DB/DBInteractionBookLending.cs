@@ -68,7 +68,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = $"CALL BookLendingSearch('{query}');"; 
+                string sqlcmdString = $"CALL BookLendingSearch('{query}')"; 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();
@@ -89,7 +89,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = $" CALL BookLendingInsert('{item.ID}', '{item.librarian}', '{item.reader}', '{item.book}', '{item.returnDate}');";
+                string sqlcmdString = $" CALL BookLendingInsert('{item.ID}', '{item.librarian}', '{item.reader}', '{item.book}', '{item.returnDate}')";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();
@@ -107,7 +107,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = $"CALL BookLendingChange('{currentID}', '{item.ID}', '{item.librarian}', '{item.reader}', '{item.book}', '{item.dateOfIssue}', '{item.returnDate}');"; // в запросе использовать $"{item.smthng}"
+                string sqlcmdString = $"CALL BookLendingChange('{currentID}', '{item.ID}', '{item.librarian}', '{item.reader}', '{item.book}', '{item.dateOfIssue}', '{item.returnDate}')"; 
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();

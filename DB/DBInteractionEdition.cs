@@ -17,7 +17,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = "SELECT edition_id AS 'ID записи', type AS 'Тип' FROM Edition";
+                string sqlcmdString = "SELECT edition_id AS 'ID записи', type AS 'Тип' FROM Edition ORDER BY edition_id";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();
@@ -64,7 +64,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = $"SELECT * FROM Edition WHERE LOCATE(\"{query}\", CONCAT_WS(\" \", edition_id, type)) >= 1;";
+                string sqlcmdString = $"SELECT * FROM Edition WHERE LOCATE(\"{query}\", CONCAT_WS(\" \", edition_id, type)) >= 1 ORDER BY edition_id";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();
@@ -85,7 +85,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = $"INSERT INTO Edition (edition_id, type) VALUES ({item.ID}, '{item.editionType}')";
+                string sqlcmdString = $"INSERT INTO Edition (edition_id, type) VALUES ('{item.ID}', '{item.editionType}')";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();

@@ -17,7 +17,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = "SELECT storage_id AS 'ID записи', location AS 'Расположение' FROM Storage";
+                string sqlcmdString = "SELECT storage_id AS 'ID записи', location AS 'Расположение' FROM Storage ORDER BY storage_id";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();
@@ -64,7 +64,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = "SELECT storage_id AS 'ID записи', location AS 'Расположение' FROM Storage WHERE LOCATE(\"{query}\", CONCAT_WS(\" \", storage_id, location)) >= 1;";
+                string sqlcmdString = "SELECT storage_id AS 'ID записи', location AS 'Расположение' FROM Storage WHERE LOCATE(\"{query}\", CONCAT_WS(\" \", storage_id, location)) >= 1 ORDER BY storage_id";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();

@@ -17,7 +17,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = "SELECT genre_id AS 'ID записи', genre AS 'Жанр' FROM Genre";
+                string sqlcmdString = "SELECT genre_id AS 'ID записи', genre AS 'Жанр' FROM Genre ORDER BY genre_id";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();
@@ -64,7 +64,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = $"SELECT * FROM Genre WHERE LOCATE(\"{query}\", CONCAT_WS(\" \", genre_id, genre)) >= 1;";
+                string sqlcmdString = $"SELECT * FROM Genre WHERE LOCATE(\"{query}\", CONCAT_WS(\" \", genre_id, genre)) >= 1 ORDER BY genre_id";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();
@@ -85,7 +85,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = $"INSERT INTO Genre (genre_id, genre) VALUES ({item.ID}, '{item.genreName}')";
+                string sqlcmdString = $"INSERT INTO Genre (genre_id, genre) VALUES ('{item.ID}', '{item.genreName}')";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();
