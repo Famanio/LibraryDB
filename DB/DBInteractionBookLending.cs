@@ -48,8 +48,8 @@ namespace LibraryDB.DB
                         librarian = reader.GetString(1),
                         reader = reader.GetString(2),
                         book = reader.GetString(3),
-                        dateOfIssue = reader.GetDateTime(4).ToString(),
-                        returnDate = reader.GetDateTime(5).ToString()
+                        dateOfIssue = reader.GetDateTime(4),
+                        returnDate = reader.GetDateTime(5)
                     };
                     return DBRow;
                 }

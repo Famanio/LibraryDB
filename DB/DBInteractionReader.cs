@@ -17,7 +17,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; //селект или call процедура
+                string sqlcmdString = ""; 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();

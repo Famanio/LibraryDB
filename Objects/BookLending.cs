@@ -12,7 +12,7 @@ namespace LibraryDB.Objects
         public string librarian { get; set; }
         public string reader { get; set; }
         public string book { get; set; }
-        public string dateOfIssue { get; set; }
-        public string returnDate { get; set; }
+        public DateTime dateOfIssue { get; set; }
+        public DateTime returnDate { get; set; }
     }
 }

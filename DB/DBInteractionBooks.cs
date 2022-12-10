@@ -53,7 +53,7 @@ namespace LibraryDB.DB
                         publisher = reader.GetString(6),
                         author = reader.GetString(7),
                         bookName = reader.GetString(8),
-                        pubDate = reader.GetDateTime(9).ToString(),
+                        pubDate = reader.GetDateTime(9),
                         numOfPages = reader.GetInt32(10),
                         cost = reader.GetFloat(11),
                         amount = reader.GetInt32(12)

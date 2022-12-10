@@ -17,7 +17,7 @@ namespace LibraryDB.Objects
         public string publisher { get; set; }
         public string author { get; set; }
         public string bookName { get; set; }
-        public string pubDate { get; set; }
+        public DateTime pubDate { get; set; }
         public int numOfPages { get; set; }
         public float cost { get; set; }
         public int amount { get; set; }
