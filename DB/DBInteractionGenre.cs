@@ -17,7 +17,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; //селект или call процедура
+                string sqlcmdString = "SELECT genre_id AS 'ID записи', genre AS 'Жанр' FROM Genre";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();
@@ -38,7 +38,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; //запрос на получение элемента по id
+                string sqlcmdString = $"SELECT * FROM Genre WHERE genre_id = {ID}";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 using (MySqlDataReader reader = sqlcmd.ExecuteReader())
                 {
@@ -64,7 +64,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; //запрос поиска или соотв процдура
+                string sqlcmdString = $"SELECT * FROM Genre WHERE LOCATE(\"{query}\", CONCAT_WS(\" \", genre_id, genre)) >= 1;";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();
@@ -85,7 +85,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; // в запросе использовать $"{item.smthng}"
+                string sqlcmdString = $"INSERT INTO Genre (genre_id, genre) VALUES ({item.ID}, '{item.genreName}')";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();
@@ -97,13 +97,13 @@ namespace LibraryDB.DB
             }
         }
 
-        public override void update(Genre item)
+        public override void update(int currentID, Genre item)
         {
             try
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; // в запросе использовать $"{item.smthng}"
+                string sqlcmdString = $"UPDATE Genre SET genre_id = '{item.ID}', genre = '{item.genreName}' WHERE Genre.genre_id = {currentID}"; 
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();
@@ -121,7 +121,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; // в запросе использовать $"{item.ID}"
+                string sqlcmdString = $"DELETE FROM Genre WHERE Genre.genre_id = {ID}";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();

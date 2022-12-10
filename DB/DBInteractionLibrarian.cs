@@ -17,7 +17,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; //селект или call процедура
+                string sqlcmdString = "SELECT lib_id AS 'ID библиотекаря', surname AS 'Фамилия', name AS 'Имя', patronymic AS 'Отчество' FROM Librarian";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();
@@ -38,7 +38,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; //запрос на получение элемента по id
+                string sqlcmdString = $"SELECT * FROM Librarian WHERE lib_id = {ID}";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 using (MySqlDataReader reader = sqlcmd.ExecuteReader())
                 {
@@ -66,7 +66,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; //запрос поиска или соотв процдура
+                string sqlcmdString = $"SELECT * FROM Librarian WHERE LOCATE(\"{query}\", CONCAT_WS(\" \", lib_id, surname, name, patronymic)) >= 1";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();
@@ -87,7 +87,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; // в запросе использовать $"{item.smthng}"
+                string sqlcmdString = $"INSERT INTO Librarian (lib_id, surname, name, patronymic) VALUES ('{item.ID}', '{item.surname}', '{item.name}', '{item.patronymic}')";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();
@@ -99,13 +99,13 @@ namespace LibraryDB.DB
             }
         }
 
-        public override void update(Librarian item)
+        public override void update(int currentID, Librarian item)
         {
             try
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; // в запросе использовать $"{item.smthng}"
+                string sqlcmdString = $"UPDATE Librarian SET lib_id = '{item.ID}', surname = '{item.surname}', name = '{item.name}', patronymic = '{item.patronymic}' WHERE Librarian.lib_id = {currentID}";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();
@@ -123,7 +123,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; // в запросе использовать $"{item.ID}"
+                string sqlcmdString = $"DELETE FROM Librarian WHERE Librarian.lib_id = {ID}";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();

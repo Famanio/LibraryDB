@@ -17,7 +17,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; //селект или call процедура
+                string sqlcmdString = "SELECT edition_id AS 'ID записи', type AS 'Тип' FROM Edition";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();
@@ -38,7 +38,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; //запрос на получение элемента по id
+                string sqlcmdString = $"SELECT * FROM Edition WHERE edition_id = '{ID}'";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 using (MySqlDataReader reader = sqlcmd.ExecuteReader())
                 {
@@ -64,7 +64,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; //запрос поиска или соотв процдура
+                string sqlcmdString = $"SELECT * FROM Edition WHERE LOCATE(\"{query}\", CONCAT_WS(\" \", edition_id, type)) >= 1;";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();
@@ -85,7 +85,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; // в запросе использовать $"{item.smthng}"
+                string sqlcmdString = $"INSERT INTO Edition (edition_id, type) VALUES ({item.ID}, '{item.editionType}')";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();
@@ -97,13 +97,13 @@ namespace LibraryDB.DB
             }
         }
 
-        public override void update(Edition item)
+        public override void update(int currentID, Edition item)
         {
             try
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; // в запросе использовать $"{item.smthng}"
+                string sqlcmdString = $"UPDATE Edition SET edition_id = '{item.ID}', type = '{item.editionType}' WHERE Edition.edition_id = {currentID}";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();
@@ -121,7 +121,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; // в запросе использовать $"{item.ID}"
+                string sqlcmdString = $"DELETE FROM Edition WHERE Edition.edition_id = {ID}";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();
