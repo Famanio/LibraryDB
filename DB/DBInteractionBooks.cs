@@ -17,7 +17,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; //селект или call процедура
+                string sqlcmdString = $"CALL SelectBooks()";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();
@@ -38,7 +38,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; //запрос на получение элемента по id
+                string sqlcmdString = $"SELECT * FROM Books WHERE book_id = '{ID}'";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 using (MySqlDataReader reader = sqlcmd.ExecuteReader())
                 {
@@ -75,7 +75,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; //запрос поиска или соотв процдура
+                string sqlcmdString = $"CALL BookSearch('{query}');";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlcmdString, connection);
                 DataTable table = new DataTable();
                 table.Clear();
@@ -96,7 +96,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; // в запросе использовать $"{item.smthng}"
+                string sqlcmdString = $"CALL BookInsert('{item.ID}', '{item.genre}', '{item.edition}', '{item.rating}', '{item.storage}', '{item.ISBN}', '{item.publisher}', '{item.author}', '{item.bookName}', '{item.pubDate}', '{item.numOfPages}', '{item.cost}', '{item.amount}')";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();
@@ -108,13 +108,13 @@ namespace LibraryDB.DB
             }
         }
 
-        public override void update(Books item)
+        public override void update(int currentID, Books item)
         {
             try
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; // в запросе использовать $"{item.smthng}"
+                string sqlcmdString = $"CALL BookChange('{currentID}', '{item.ID}', '{item.genre}', '{item.edition}', '{item.rating}', '{item.storage}', '{item.ISBN}', '{item.publisher}', '{item.author}', '{item.bookName}', '{item.pubDate}', '{item.numOfPages}', '{item.cost}', '{item.amount}')"; 
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();
@@ -132,7 +132,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = ""; // в запросе использовать $"{item.ID}"
+                string sqlcmdString = $"DELETE FROM Books WHERE Books.book_id = {ID}"; 
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();

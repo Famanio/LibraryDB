@@ -15,9 +15,9 @@ namespace LibraryDB
         private void selectButton_Click(object sender, EventArgs e)
         {
             string qw = "search";
-            Reader reader = new Reader();
+            DBInteractionReader readersDB = new DBInteractionReader();
             DataTable dt = new DataTable();
-            dt = new Reader.search(qw);
+            dt = readersDB.search(qw);
         }
     }
 }
