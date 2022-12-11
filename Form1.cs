@@ -7,6 +7,9 @@ namespace LibraryDB
 {
     public partial class Form1 : Form
     {
+        DataTable dt = new DataTable();
+        VIewDBObjects view = new VIewDBObjects();
+
         public Form1()
         {
             InitializeComponent();
@@ -14,10 +17,8 @@ namespace LibraryDB
 
         private void selectButton_Click(object sender, EventArgs e)
         {
-            string qw = "search";
-            DBInteractionReader readersDB = new DBInteractionReader();
-            DataTable dt = new DataTable();
-            dt = readersDB.search(qw);
+            dt = view.chooseTable(selectTableCB.Text);
+            mainDGV.DataSource = dt;
         }
     }
 }
