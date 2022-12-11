@@ -27,7 +27,6 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка загрузки: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }
@@ -56,7 +55,6 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка загрузки: {ex.ToString}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
 
@@ -78,7 +76,6 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка при поиске: {ex.ToString}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }
@@ -96,7 +93,6 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка при добавлении: {ex.ToString}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }
@@ -114,7 +110,6 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка при изменении: {ex.ToString}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }
@@ -132,7 +127,6 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка при удалении: {ex.ToString}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }

@@ -65,5 +65,49 @@ namespace LibraryDB.View
             }
             return dt;
         }
+
+        public DataTable searchRows(int tableID, string query)
+        {
+            DataTable dt = new DataTable();
+            switch (tableID)
+            {
+                case 1:
+                    DBInteractionBookLending BookLendingsDB = new DBInteractionBookLending();
+                    dt = BookLendingsDB.search(query);
+                    break;
+                case 2:
+                    DBInteractionBooks BooksDB = new DBInteractionBooks();
+                    dt = BooksDB.search(query);
+                    break;
+                case 3:
+                    DBInteractionReader ReadersDB = new DBInteractionReader();
+                    dt = ReadersDB.search(query);
+                    break;
+                case 4:
+                    DBInteractionLibrarian LibrariansDB = new DBInteractionLibrarian();
+                    dt = LibrariansDB.search(query);
+                    break;
+                case 5:
+                    DBInteractionGenre GenresDB = new DBInteractionGenre();
+                    dt = GenresDB.search(query);
+                    break;
+                case 6:
+                    DBInteractionEdition EditionsDB = new DBInteractionEdition();
+                    dt = EditionsDB.search(query);
+                    break;
+                case 7:
+                    DBInteractionRating RatingsDB = new DBInteractionRating();
+                    dt = RatingsDB.search(query);
+                    break;
+                case 8:
+                    DBIntegrationStorage StorageDB = new DBIntegrationStorage();
+                    dt = StorageDB.search(query);
+                    break;
+                default:
+                    MessageBox.Show($"Возникла ошибка загрузки таблицы:\nНе удалось найти данные. Возможно, отсутствует подключение к серверу", "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+            }
+            return dt;
+        }
     }
 }
