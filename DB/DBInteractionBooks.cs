@@ -27,7 +27,6 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка загрузки: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }
@@ -38,21 +37,21 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = $"SELECT * FROM Books WHERE book_id = '{ID}'";
+                string sqlcmdString = $"CALL SelectBookByID({ID})";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 using (MySqlDataReader reader = sqlcmd.ExecuteReader())
                 {
                     Books DBRow = new Books
                     {
                         ID = reader.GetInt32(0),
-                        genre = reader.GetString(1),
-                        edition = reader.GetString(2),
-                        rating = reader.GetString(3),
-                        storage = reader.GetString(4),
-                        ISBN = reader.GetString(5),
-                        publisher = reader.GetString(6),
-                        author = reader.GetString(7),
-                        bookName = reader.GetString(8),
+                        bookName = reader.GetString(1),
+                        author = reader.GetString(2),
+                        genre = reader.GetString(3),
+                        edition = reader.GetString(4),
+                        rating = reader.GetString(5),
+                        storage = reader.GetString(6),
+                        ISBN = reader.GetString(7),
+                        publisher = reader.GetString(8),
                         pubDate = reader.GetDateTime(9),
                         numOfPages = reader.GetInt32(10),
                         cost = reader.GetFloat(11),
@@ -63,7 +62,6 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка загрузки: {ex.ToString}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
 
@@ -85,7 +83,6 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка при поиске: {ex.ToString}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }
@@ -103,7 +100,6 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка при добавлении: {ex.ToString}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }
@@ -121,7 +117,6 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка при изменении: {ex.ToString}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }
@@ -139,7 +134,6 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка при удалении: {ex.ToString}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }

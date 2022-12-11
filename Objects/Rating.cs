@@ -10,5 +10,11 @@ namespace LibraryDB.Objects
     {
         public int ID { get; set; }
         public string ageRating { get; set; }
+
+        public string[] convertToStrArr()
+        {
+            string[] arr = {ID.ToString(), ageRating};
+            return arr;
+        }
     }
 }

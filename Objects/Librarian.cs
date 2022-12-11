@@ -12,5 +12,11 @@ namespace LibraryDB.Objects
         public string surname { get; set; }
         public string name { get; set; }
         public string patronymic { get; set; }
+
+        public string[] convertToStrArr()
+        {
+            string[] arr = { ID.ToString(), surname, name, patronymic };
+            return arr;
+        }
     }
 }

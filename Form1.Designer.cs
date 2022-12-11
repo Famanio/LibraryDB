@@ -63,7 +63,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.objectDGV = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.deleteButton = new System.Windows.Forms.Button();
             this.changeButton = new System.Windows.Forms.Button();
@@ -75,7 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mainDGV)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.objectDGV)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -155,16 +155,18 @@
             this.mainDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mainDGV.Location = new System.Drawing.Point(6, 6);
             this.mainDGV.Name = "mainDGV";
+            this.mainDGV.ReadOnly = true;
             this.mainDGV.RowHeadersWidth = 51;
             this.mainDGV.RowTemplate.Height = 29;
             this.mainDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.mainDGV.Size = new System.Drawing.Size(877, 453);
             this.mainDGV.TabIndex = 0;
+            this.mainDGV.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.mainDGV_CellMouseDoubleClick);
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.panel1);
-            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.objectDGV);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
@@ -227,7 +229,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox13.Location = new System.Drawing.Point(3, 704);
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(619, 27);
+            this.textBox13.Size = new System.Drawing.Size(535, 27);
             this.textBox13.TabIndex = 30;
             // 
             // label12
@@ -246,7 +248,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox12.Location = new System.Drawing.Point(3, 648);
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(619, 27);
+            this.textBox12.Size = new System.Drawing.Size(535, 27);
             this.textBox12.TabIndex = 28;
             // 
             // label11
@@ -265,7 +267,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox11.Location = new System.Drawing.Point(3, 592);
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(619, 27);
+            this.textBox11.Size = new System.Drawing.Size(535, 27);
             this.textBox11.TabIndex = 26;
             // 
             // label10
@@ -284,7 +286,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox10.Location = new System.Drawing.Point(3, 536);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(619, 27);
+            this.textBox10.Size = new System.Drawing.Size(535, 27);
             this.textBox10.TabIndex = 24;
             // 
             // label9
@@ -303,7 +305,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox9.Location = new System.Drawing.Point(3, 480);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(619, 27);
+            this.textBox9.Size = new System.Drawing.Size(535, 27);
             this.textBox9.TabIndex = 22;
             // 
             // label8
@@ -322,7 +324,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox8.Location = new System.Drawing.Point(3, 424);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(619, 27);
+            this.textBox8.Size = new System.Drawing.Size(535, 27);
             this.textBox8.TabIndex = 20;
             // 
             // label7
@@ -341,7 +343,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox7.Location = new System.Drawing.Point(3, 368);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(619, 27);
+            this.textBox7.Size = new System.Drawing.Size(535, 27);
             this.textBox7.TabIndex = 18;
             // 
             // label6
@@ -360,7 +362,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox6.Location = new System.Drawing.Point(3, 312);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(619, 27);
+            this.textBox6.Size = new System.Drawing.Size(535, 27);
             this.textBox6.TabIndex = 16;
             // 
             // label5
@@ -379,7 +381,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox5.Location = new System.Drawing.Point(3, 256);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(619, 27);
+            this.textBox5.Size = new System.Drawing.Size(535, 27);
             this.textBox5.TabIndex = 14;
             // 
             // label4
@@ -398,7 +400,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox4.Location = new System.Drawing.Point(3, 200);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(619, 27);
+            this.textBox4.Size = new System.Drawing.Size(535, 27);
             this.textBox4.TabIndex = 12;
             // 
             // label3
@@ -417,7 +419,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox3.Location = new System.Drawing.Point(3, 144);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(619, 27);
+            this.textBox3.Size = new System.Drawing.Size(535, 27);
             this.textBox3.TabIndex = 10;
             // 
             // label2
@@ -436,7 +438,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.Location = new System.Drawing.Point(3, 88);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(619, 27);
+            this.textBox2.Size = new System.Drawing.Size(535, 27);
             this.textBox2.TabIndex = 8;
             // 
             // label1
@@ -455,21 +457,25 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(3, 32);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(619, 27);
+            this.textBox1.Size = new System.Drawing.Size(535, 27);
             this.textBox1.TabIndex = 6;
             // 
-            // dataGridView1
+            // objectDGV
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.objectDGV.AllowUserToAddRows = false;
+            this.objectDGV.AllowUserToDeleteRows = false;
+            this.objectDGV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(877, 30);
-            this.dataGridView1.TabIndex = 1;
+            this.objectDGV.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.objectDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.objectDGV.ColumnHeadersVisible = false;
+            this.objectDGV.Location = new System.Drawing.Point(6, 6);
+            this.objectDGV.Name = "objectDGV";
+            this.objectDGV.ReadOnly = true;
+            this.objectDGV.RowHeadersWidth = 51;
+            this.objectDGV.RowTemplate.Height = 29;
+            this.objectDGV.Size = new System.Drawing.Size(877, 30);
+            this.objectDGV.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -557,7 +563,7 @@
             this.tabPage2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.objectDGV)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -574,7 +580,7 @@
         private TabPage tabPage2;
         private TabPage tabPage3;
         private DataGridView mainDGV;
-        private DataGridView dataGridView1;
+        private DataGridView objectDGV;
         private GroupBox groupBox1;
         private Button deleteButton;
         private Button changeButton;

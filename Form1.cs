@@ -48,5 +48,25 @@ namespace LibraryDB
                 mainDGV.DataSource = dt;
             }
         }
+
+        private void mainDGV_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ulong selectedRowCount = (ulong)mainDGV.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (selectedRowCount > 0)
+            {
+                int currentrow = mainDGV.SelectedRows[0].Index;
+                string[] dataDGV = new string[mainDGV.ColumnCount];
+                objectDGV.Columns.Clear();
+
+                for (int i = 0; i < mainDGV.ColumnCount; i++)
+                {
+                    objectDGV.Columns.Add("", ""); //добавить пустой столбец (названи€ убрать сотв. свойством)
+                }
+
+                objectDGV.Rows.Add(dataDGV); //добавление
+
+                MessageBox.Show("—трока добавлена на редактирование", "”ведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }

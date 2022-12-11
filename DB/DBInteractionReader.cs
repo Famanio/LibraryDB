@@ -11,7 +11,6 @@ namespace LibraryDB.DB
 {
     internal class DBInteractionReader : DBInteraction<Reader>
     {
-        //в эти классы DateTime попадает в нужной форме (задача вьюшек - преобразовать из дд.мм.гггг в гггг-мм-дд)
         public override DataTable getAll()
         {
             try
@@ -28,7 +27,6 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка загрузки: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }
@@ -49,17 +47,16 @@ namespace LibraryDB.DB
                         surname = reader.GetString(1),
                         name = reader.GetString(2),
                         patronymic = reader.GetString(3),
-                        dateOfBirth = reader.GetDateTime(4).ToString(),
+                        dateOfBirth = reader.GetDateTime(4),
                         homeAddress = reader.GetString(5),
                         phoneNumber = reader.GetString(6),
-                        regDate = reader.GetString(7)
+                        regDate = reader.GetDateTime(7)
                     };
                     return DBRow;
                 }
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка загрузки: {ex.ToString}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
 
@@ -81,7 +78,6 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка при поиске: {ex.ToString}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }
@@ -99,7 +95,6 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка при добавлении: {ex.ToString}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }
@@ -117,7 +112,6 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка при изменении: {ex.ToString}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }
@@ -135,7 +129,6 @@ namespace LibraryDB.DB
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Возникла ошибка при удалении: {ex.ToString}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }

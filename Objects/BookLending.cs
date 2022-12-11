@@ -14,5 +14,11 @@ namespace LibraryDB.Objects
         public string book { get; set; }
         public DateTime dateOfIssue { get; set; }
         public DateTime returnDate { get; set; }
+
+        public string[] convertToStrArr()
+        {
+            string[] arr = { ID.ToString(), librarian, reader, book, dateOfIssue.ToString(), returnDate.ToString() };
+            return arr;
+        }
     }
 }

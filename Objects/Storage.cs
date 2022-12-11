@@ -10,5 +10,11 @@ namespace LibraryDB.Objects
     {
         public int ID { get; set; }
         public string storageLocation { get; set; }
+
+        public string[] convertToStrArr()
+        {
+            string[] arr = {ID.ToString(), storageLocation};
+            return arr;
+        }
     }
 }

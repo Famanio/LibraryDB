@@ -9,5 +9,6 @@ namespace LibraryDB.Objects
     internal interface IDBObject
     {
         public int ID { get; set; }
+        public string[] convertToStrArr();
     }
 }

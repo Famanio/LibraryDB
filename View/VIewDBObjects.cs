@@ -14,6 +14,16 @@ namespace LibraryDB.View
     {
         public int choosenTableID;
 
+        public string[] bookLendingLabels = { "ID выдачи", "Библиотекарь", "Читатель", "Книга", "Дата выдачи", "Дата возврата" };
+        public string[] bookLabels = { "ID книги", "Название книги", "Автор", "Жанр", "Издание", "Возрастной рейтинг",
+        "Расположение", "ISBN", "Издатель", "Дата издания", "Кол-во стр.", "Стоимость (руб.)", "Кол-во" };
+        public string[] readerLabels = { "ID читателя", "Фамилия", "Имя", "Отчество", "Дата рождения", "Адрес проживания", "Номер телефона", "Дата регистрации" };
+        public string[] librarianLabels = { "ID библиотекаря", "Фамилия", "Имя", "Отчество" };
+        public string[] genreLabels = { "ID записи", "Жанр" };
+        public string[] editionLabels = { "ID записи", "Тип" };
+        public string[] ratingLabels = { "ID записи", "Возрастной рейтинг" };
+        public string[] storageLabels = { "ID записи", "Расположение" };
+
         public DataTable chooseTable(string table)
         {     
             DataTable dt = new DataTable();
@@ -109,5 +119,6 @@ namespace LibraryDB.View
             }
             return dt;
         }
+
     }
 }
