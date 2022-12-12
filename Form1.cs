@@ -59,7 +59,7 @@ namespace LibraryDB
                 ulong selectedRowCount = (ulong)mainDGV.Rows.GetRowCount(DataGridViewElementStates.Selected);
                 if (selectedRowCount > 0)
                 {
-                    int dgvID = (int)mainDGV.Rows[mainDGV.SelectedRows[0].Index].Cells[0].Value;
+                    int dgvID = Convert.ToInt32(mainDGV.Rows[mainDGV.SelectedRows[0].Index].Cells[0].Value);
                     string[] dataDGV = new string[mainDGV.ColumnCount];
                     for (int i = 0; i < mainDGV.ColumnCount; i++)
                     {
@@ -106,7 +106,7 @@ namespace LibraryDB
             try
             {
                 string[] obj = new string[mainDGV.ColumnCount];
-                int dgvID = (int)mainDGV.Rows[mainDGV.SelectedRows[0].Index].Cells[0].Value;
+                int dgvID = Convert.ToInt32(mainDGV.Rows[mainDGV.SelectedRows[0].Index].Cells[0].Value);
                 for (int i = 1; i <= obj.Length; i++)
                 {
                     string elem = this.Controls.Find($"textBox{i}", true)[0].Text;
@@ -120,6 +120,7 @@ namespace LibraryDB
                 MessageBox.Show($"Возникла ошибка при изменении: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             dt.Clear();
+            clearEditing();
             dt = view.chooseTable(selectTableCB.Text);
             mainDGV.DataSource = dt;
         }
@@ -129,7 +130,7 @@ namespace LibraryDB
             try
             {
                 string[] obj = new string[mainDGV.ColumnCount];
-                int dgvID = (int)mainDGV.Rows[mainDGV.SelectedRows[0].Index].Cells[0].Value;
+                int dgvID = Convert.ToInt32(mainDGV.Rows[mainDGV.SelectedRows[0].Index].Cells[0].Value);
                 for (int i = 1; i <= obj.Length; i++)
                 {
                     string elem = this.Controls.Find($"textBox{i}", true)[0].Text;
@@ -143,6 +144,7 @@ namespace LibraryDB
                 MessageBox.Show($"Возникла ошибка при удалении: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             dt.Clear();
+            clearEditing();
             dt = view.chooseTable(selectTableCB.Text);
             mainDGV.DataSource = dt;
         }
