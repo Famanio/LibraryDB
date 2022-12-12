@@ -35,19 +35,20 @@ namespace LibraryDB.DB
         {
             try
             {
+                Librarian DBRow = new Librarian();
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
                 string sqlcmdString = $"SELECT * FROM Librarian WHERE lib_id = {ID}";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 using (MySqlDataReader reader = sqlcmd.ExecuteReader())
                 {
-                    Librarian DBRow = new Librarian
+                    if (reader.Read())
                     {
-                        ID = reader.GetInt32(0),
-                        surname = reader.GetString(1),
-                        name = reader.GetString(2),
-                        patronymic = reader.GetString(3)
-                    };
+                        DBRow.ID = reader.GetInt32(0);
+                        DBRow.surname = reader.GetString(1);
+                        DBRow.name = reader.GetString(2);
+                        DBRow.patronymic = reader.GetString(3);
+                    }
                     return DBRow;
                 }
             }

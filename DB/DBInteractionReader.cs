@@ -35,23 +35,24 @@ namespace LibraryDB.DB
         {
             try
             {
+                Reader DBRow = new Reader();
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = $"SELECT * FROM Reader WHERE reader_id = {ID}";
+                string sqlcmdString = $"SELECT reader_id, surname, name, patronymic, DATE_FORMAT(date_of_birth, '%d.%m.%Y'), home_address, phone_num, DATE_FORMAT(reg_date, '%d.%m.%Y') FROM Reader WHERE reader_id = {ID}";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 using (MySqlDataReader reader = sqlcmd.ExecuteReader())
                 {
-                    Reader DBRow = new Reader
+                    if (reader.Read())
                     {
-                        ID = reader.GetInt32(0),
-                        surname = reader.GetString(1),
-                        name = reader.GetString(2),
-                        patronymic = reader.GetString(3),
-                        dateOfBirth = reader.GetDateTime(4),
-                        homeAddress = reader.GetString(5),
-                        phoneNumber = reader.GetString(6),
-                        regDate = reader.GetDateTime(7)
-                    };
+                        DBRow.ID = reader.GetInt32(0);
+                        DBRow.surname = reader.GetString(1);
+                        DBRow.name = reader.GetString(2);
+                        DBRow.patronymic = reader.GetString(3);
+                        DBRow.dateOfBirth = reader.GetString(4);
+                        DBRow.homeAddress = reader.GetString(5);
+                        DBRow.phoneNumber = reader.GetString(6);
+                        DBRow.regDate = reader.GetString(7);
+                    }
                     return DBRow;
                 }
             }

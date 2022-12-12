@@ -35,21 +35,23 @@ namespace LibraryDB.DB
         {
             try
             {
+                BookLending DBRow = new BookLending();
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
                 string sqlcmdString = $"CALL SelectBookLendingByID({ID})";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 using (MySqlDataReader reader = sqlcmd.ExecuteReader())
                 {
-                    BookLending DBRow = new BookLending
+                    if (reader.Read())
                     {
-                        ID = reader.GetInt32(0),
-                        librarian = reader.GetString(1),
-                        reader = reader.GetString(2),
-                        book = reader.GetString(3),
-                        dateOfIssue = reader.GetDateTime(4),
-                        returnDate = reader.GetDateTime(5)
-                    };
+                        DBRow.ID = reader.GetInt32(0);
+                        DBRow.librarian = reader.GetString(1);
+                        DBRow.reader = reader.GetString(2);
+                        DBRow.book = reader.GetString(3);
+                        DBRow.lendAmount = reader.GetInt32(4);
+                        DBRow.dateOfIssue = reader.GetString(5);
+                        DBRow.returnDate = reader.GetString(6);
+                    }
                     return DBRow;
                 }
             }
@@ -86,7 +88,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = $" CALL BookLendingInsert('{item.ID}', '{item.librarian}', '{item.reader}', '{item.book}', '{item.returnDate}')";
+                string sqlcmdString = $" CALL BookLendingInsert('{item.librarian}', '{item.reader}', '{item.book}', '{item.lendAmount}', '{item.returnDate}')";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();
@@ -103,7 +105,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = $"CALL BookLendingChange('{currentID}', '{item.ID}', '{item.librarian}', '{item.reader}', '{item.book}', '{item.dateOfIssue}', '{item.returnDate}')"; 
+                string sqlcmdString = $"CALL BookLendingChange('{currentID}', '{item.ID}', '{item.librarian}', '{item.reader}', '{item.book}', '{item.lendAmount}', '{item.dateOfIssue}', '{item.returnDate}')"; 
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();

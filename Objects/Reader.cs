@@ -12,14 +12,14 @@ namespace LibraryDB.Objects
         public string surname { get; set; }
         public string name { get; set; }
         public string patronymic { get; set; }
-        public DateTime dateOfBirth { get; set; }
+        public string dateOfBirth { get; set; }
         public string homeAddress { get; set; }
         public string phoneNumber { get; set; }
-        public DateTime regDate { get; set; }
+        public string regDate { get; set; }
 
         public string[] convertToStrArr()
         {
-            string[] arr = { ID.ToString(), surname, name, patronymic, dateOfBirth.ToString(), homeAddress, phoneNumber, regDate.ToString() };
+            string[] arr = { ID.ToString(), surname, name, patronymic, dateOfBirth, homeAddress, phoneNumber, regDate };
             return arr;
         }
     }

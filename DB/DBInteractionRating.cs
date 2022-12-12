@@ -35,17 +35,18 @@ namespace LibraryDB.DB
         {
             try
             {
+                Rating DBRow = new Rating();
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
                 string sqlcmdString = $"SELECT * FROM Rating WHERE rating_id = {ID}";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 using (MySqlDataReader reader = sqlcmd.ExecuteReader())
                 {
-                    Rating DBRow = new Rating
+                    if (reader.Read())
                     {
-                        ID = reader.GetInt32(0),
-                        ageRating = reader.GetString(1)
-                    };
+                        DBRow.ID = reader.GetInt32(0);
+                        DBRow.ageRating = reader.GetString(1);
+                    }
                     return DBRow;
                 }
             }

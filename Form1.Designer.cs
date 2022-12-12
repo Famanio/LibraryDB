@@ -208,9 +208,9 @@
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(6, 42);
+            this.panel1.Location = new System.Drawing.Point(6, 62);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(658, 417);
+            this.panel1.Size = new System.Drawing.Size(658, 397);
             this.panel1.TabIndex = 2;
             // 
             // label13
@@ -219,9 +219,9 @@
             this.label13.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label13.Location = new System.Drawing.Point(3, 678);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(64, 23);
+            this.label13.Size = new System.Drawing.Size(31, 23);
             this.label13.TabIndex = 31;
-            this.label13.Text = "label13";
+            this.label13.Text = "---";
             // 
             // textBox13
             // 
@@ -229,7 +229,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox13.Location = new System.Drawing.Point(3, 704);
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(535, 27);
+            this.textBox13.Size = new System.Drawing.Size(610, 27);
             this.textBox13.TabIndex = 30;
             // 
             // label12
@@ -238,9 +238,9 @@
             this.label12.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label12.Location = new System.Drawing.Point(3, 622);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(64, 23);
+            this.label12.Size = new System.Drawing.Size(31, 23);
             this.label12.TabIndex = 29;
-            this.label12.Text = "label12";
+            this.label12.Text = "---";
             // 
             // textBox12
             // 
@@ -248,7 +248,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox12.Location = new System.Drawing.Point(3, 648);
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(535, 27);
+            this.textBox12.Size = new System.Drawing.Size(610, 27);
             this.textBox12.TabIndex = 28;
             // 
             // label11
@@ -257,9 +257,9 @@
             this.label11.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label11.Location = new System.Drawing.Point(3, 566);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(64, 23);
+            this.label11.Size = new System.Drawing.Size(31, 23);
             this.label11.TabIndex = 27;
-            this.label11.Text = "label11";
+            this.label11.Text = "---";
             // 
             // textBox11
             // 
@@ -267,7 +267,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox11.Location = new System.Drawing.Point(3, 592);
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(535, 27);
+            this.textBox11.Size = new System.Drawing.Size(610, 27);
             this.textBox11.TabIndex = 26;
             // 
             // label10
@@ -276,9 +276,9 @@
             this.label10.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label10.Location = new System.Drawing.Point(3, 510);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(64, 23);
+            this.label10.Size = new System.Drawing.Size(31, 23);
             this.label10.TabIndex = 25;
-            this.label10.Text = "label10";
+            this.label10.Text = "---";
             // 
             // textBox10
             // 
@@ -286,7 +286,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox10.Location = new System.Drawing.Point(3, 536);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(535, 27);
+            this.textBox10.Size = new System.Drawing.Size(610, 27);
             this.textBox10.TabIndex = 24;
             // 
             // label9
@@ -295,9 +295,9 @@
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label9.Location = new System.Drawing.Point(3, 454);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 23);
+            this.label9.Size = new System.Drawing.Size(31, 23);
             this.label9.TabIndex = 23;
-            this.label9.Text = "label9";
+            this.label9.Text = "---";
             // 
             // textBox9
             // 
@@ -305,7 +305,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox9.Location = new System.Drawing.Point(3, 480);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(535, 27);
+            this.textBox9.Size = new System.Drawing.Size(610, 27);
             this.textBox9.TabIndex = 22;
             // 
             // label8
@@ -314,9 +314,9 @@
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.Location = new System.Drawing.Point(3, 398);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(55, 23);
+            this.label8.Size = new System.Drawing.Size(31, 23);
             this.label8.TabIndex = 21;
-            this.label8.Text = "label8";
+            this.label8.Text = "---";
             // 
             // textBox8
             // 
@@ -324,7 +324,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox8.Location = new System.Drawing.Point(3, 424);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(535, 27);
+            this.textBox8.Size = new System.Drawing.Size(610, 27);
             this.textBox8.TabIndex = 20;
             // 
             // label7
@@ -333,9 +333,9 @@
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(3, 342);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 23);
+            this.label7.Size = new System.Drawing.Size(31, 23);
             this.label7.TabIndex = 19;
-            this.label7.Text = "label7";
+            this.label7.Text = "---";
             // 
             // textBox7
             // 
@@ -343,7 +343,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox7.Location = new System.Drawing.Point(3, 368);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(535, 27);
+            this.textBox7.Size = new System.Drawing.Size(610, 27);
             this.textBox7.TabIndex = 18;
             // 
             // label6
@@ -352,9 +352,9 @@
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(3, 286);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 23);
+            this.label6.Size = new System.Drawing.Size(31, 23);
             this.label6.TabIndex = 17;
-            this.label6.Text = "label6";
+            this.label6.Text = "---";
             // 
             // textBox6
             // 
@@ -362,7 +362,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox6.Location = new System.Drawing.Point(3, 312);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(535, 27);
+            this.textBox6.Size = new System.Drawing.Size(610, 27);
             this.textBox6.TabIndex = 16;
             // 
             // label5
@@ -371,9 +371,9 @@
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(3, 230);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 23);
+            this.label5.Size = new System.Drawing.Size(31, 23);
             this.label5.TabIndex = 15;
-            this.label5.Text = "label5";
+            this.label5.Text = "---";
             // 
             // textBox5
             // 
@@ -381,7 +381,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox5.Location = new System.Drawing.Point(3, 256);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(535, 27);
+            this.textBox5.Size = new System.Drawing.Size(610, 27);
             this.textBox5.TabIndex = 14;
             // 
             // label4
@@ -390,9 +390,9 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(3, 174);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 23);
+            this.label4.Size = new System.Drawing.Size(31, 23);
             this.label4.TabIndex = 13;
-            this.label4.Text = "label4";
+            this.label4.Text = "---";
             // 
             // textBox4
             // 
@@ -400,7 +400,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox4.Location = new System.Drawing.Point(3, 200);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(535, 27);
+            this.textBox4.Size = new System.Drawing.Size(610, 27);
             this.textBox4.TabIndex = 12;
             // 
             // label3
@@ -409,9 +409,9 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(3, 118);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 23);
+            this.label3.Size = new System.Drawing.Size(31, 23);
             this.label3.TabIndex = 11;
-            this.label3.Text = "label3";
+            this.label3.Text = "---";
             // 
             // textBox3
             // 
@@ -419,7 +419,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox3.Location = new System.Drawing.Point(3, 144);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(535, 27);
+            this.textBox3.Size = new System.Drawing.Size(610, 27);
             this.textBox3.TabIndex = 10;
             // 
             // label2
@@ -428,9 +428,9 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(3, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 23);
+            this.label2.Size = new System.Drawing.Size(31, 23);
             this.label2.TabIndex = 9;
-            this.label2.Text = "label2";
+            this.label2.Text = "---";
             // 
             // textBox2
             // 
@@ -438,7 +438,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.Location = new System.Drawing.Point(3, 88);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(535, 27);
+            this.textBox2.Size = new System.Drawing.Size(610, 27);
             this.textBox2.TabIndex = 8;
             // 
             // label1
@@ -447,9 +447,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(3, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 23);
+            this.label1.Size = new System.Drawing.Size(31, 23);
             this.label1.TabIndex = 7;
-            this.label1.Text = "label1";
+            this.label1.Text = "---";
             // 
             // textBox1
             // 
@@ -457,7 +457,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(3, 32);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(535, 27);
+            this.textBox1.Size = new System.Drawing.Size(610, 27);
             this.textBox1.TabIndex = 6;
             // 
             // objectDGV
@@ -466,6 +466,7 @@
             this.objectDGV.AllowUserToDeleteRows = false;
             this.objectDGV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.objectDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.objectDGV.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.objectDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.objectDGV.ColumnHeadersVisible = false;
@@ -474,7 +475,7 @@
             this.objectDGV.ReadOnly = true;
             this.objectDGV.RowHeadersWidth = 51;
             this.objectDGV.RowTemplate.Height = 29;
-            this.objectDGV.Size = new System.Drawing.Size(877, 30);
+            this.objectDGV.Size = new System.Drawing.Size(877, 50);
             this.objectDGV.TabIndex = 1;
             // 
             // groupBox1
@@ -484,9 +485,9 @@
             this.groupBox1.Controls.Add(this.deleteButton);
             this.groupBox1.Controls.Add(this.changeButton);
             this.groupBox1.Controls.Add(this.addButton);
-            this.groupBox1.Location = new System.Drawing.Point(670, 42);
+            this.groupBox1.Location = new System.Drawing.Point(670, 62);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(213, 417);
+            this.groupBox1.Size = new System.Drawing.Size(213, 397);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Запись";
@@ -501,6 +502,7 @@
             this.deleteButton.TabIndex = 2;
             this.deleteButton.Text = "Удалить";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // changeButton
             // 
@@ -512,6 +514,7 @@
             this.changeButton.TabIndex = 1;
             this.changeButton.Text = "Изменить";
             this.changeButton.UseVisualStyleBackColor = true;
+            this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
             // 
             // addButton
             // 
@@ -523,6 +526,7 @@
             this.addButton.TabIndex = 0;
             this.addButton.Text = "Добавить";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // tabPage3
             // 

@@ -12,12 +12,13 @@ namespace LibraryDB.Objects
         public string librarian { get; set; }
         public string reader { get; set; }
         public string book { get; set; }
-        public DateTime dateOfIssue { get; set; }
-        public DateTime returnDate { get; set; }
+        public int lendAmount { get; set; }
+        public string dateOfIssue { get; set; }
+        public string returnDate { get; set; }
 
         public string[] convertToStrArr()
         {
-            string[] arr = { ID.ToString(), librarian, reader, book, dateOfIssue.ToString(), returnDate.ToString() };
+            string[] arr = { ID.ToString(), librarian, reader, book, lendAmount.ToString(), dateOfIssue, returnDate };
             return arr;
         }
     }

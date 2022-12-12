@@ -35,17 +35,18 @@ namespace LibraryDB.DB
         {
             try
             {
+                Genre DBRow = new Genre();
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
                 string sqlcmdString = $"SELECT * FROM Genre WHERE genre_id = {ID}";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 using (MySqlDataReader reader = sqlcmd.ExecuteReader())
                 {
-                    Genre DBRow = new Genre
+                    if (reader.Read())
                     {
-                        ID = reader.GetInt32(0),
-                        genreName = reader.GetString(1)
-                    };
+                        DBRow.ID = reader.GetInt32(0);
+                        DBRow.genreName = reader.GetString(1);
+                    }
                     return DBRow;
                 }
             }

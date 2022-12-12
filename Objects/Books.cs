@@ -17,14 +17,14 @@ namespace LibraryDB.Objects
         public string storage { get; set; }
         public string ISBN { get; set; }
         public string publisher { get; set; }
-        public DateTime pubDate { get; set; }
+        public string pubDate { get; set; }
         public int numOfPages { get; set; }
         public float cost { get; set; }
         public int amount { get; set; }
 
         public string[] convertToStrArr()
         {
-            string[] arr = { ID.ToString(), bookName, author, genre, edition, rating, storage, ISBN, publisher, pubDate.ToString(), numOfPages.ToString(), cost.ToString(), amount.ToString() };
+            string[] arr = { ID.ToString(), bookName, author, genre, edition, rating, storage, ISBN, publisher, pubDate, numOfPages.ToString(), cost.ToString(), amount.ToString() };
             return arr;
         }
     }

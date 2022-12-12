@@ -35,17 +35,18 @@ namespace LibraryDB.DB
         {
             try
             {
+                Storage DBRow = new Storage();
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
                 string sqlcmdString = $"SELECT * FROM Storage WHERE storage_id = {ID}";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 using (MySqlDataReader reader = sqlcmd.ExecuteReader())
                 {
-                    Storage DBRow = new Storage
+                    if (reader.Read())
                     {
-                        ID = reader.GetInt32(0),
-                        storageLocation = reader.GetString(1)
-                    };
+                        DBRow.ID = reader.GetInt32(0);
+                        DBRow.storageLocation = reader.GetString(1);
+                    }
                     return DBRow;
                 }
             }

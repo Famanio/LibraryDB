@@ -5,10 +5,12 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 using MySql.Data.MySqlClient;
 
 namespace LibraryDB.DB
 {
+    //базовый класс, методы гет переделать как тут, сделать все даты стрингами, все равно нормально их получать я не могу
     internal class DBInteractionBooks : DBInteraction<Books>
     {
         public override DataTable getAll()
@@ -35,28 +37,29 @@ namespace LibraryDB.DB
         {
             try
             {
+                Books DBRow = new Books();
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
                 string sqlcmdString = $"CALL SelectBookByID({ID})";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 using (MySqlDataReader reader = sqlcmd.ExecuteReader())
                 {
-                    Books DBRow = new Books
+                    if (reader.Read())
                     {
-                        ID = reader.GetInt32(0),
-                        bookName = reader.GetString(1),
-                        author = reader.GetString(2),
-                        genre = reader.GetString(3),
-                        edition = reader.GetString(4),
-                        rating = reader.GetString(5),
-                        storage = reader.GetString(6),
-                        ISBN = reader.GetString(7),
-                        publisher = reader.GetString(8),
-                        pubDate = reader.GetDateTime(9),
-                        numOfPages = reader.GetInt32(10),
-                        cost = reader.GetFloat(11),
-                        amount = reader.GetInt32(12)
-                    };
+                        DBRow.ID = reader.GetInt32(0);
+                        DBRow.bookName = reader.GetString(1);
+                        DBRow.author = reader.GetString(2);
+                        DBRow.genre = reader.GetString(3);
+                        DBRow.edition = reader.GetString(4);
+                        DBRow.rating = reader.GetString(5);
+                        DBRow.storage = reader.GetString(6);
+                        DBRow.ISBN = reader.GetString(7);
+                        DBRow.publisher = reader.GetString(8);
+                        DBRow.pubDate = reader.GetString(9);
+                        DBRow.numOfPages = reader.GetInt32(10);
+                        DBRow.cost = reader.GetFloat(11);
+                        DBRow.amount = reader.GetInt32(12);
+                    }
                     return DBRow;
                 }
             }

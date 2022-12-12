@@ -35,17 +35,18 @@ namespace LibraryDB.DB
         {
             try
             {
+                Edition DBRow = new Edition();
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
                 string sqlcmdString = $"SELECT * FROM Edition WHERE edition_id = '{ID}'";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 using (MySqlDataReader reader = sqlcmd.ExecuteReader())
                 {
-                    Edition DBRow = new Edition
+                    if (reader.Read())
                     {
-                        ID = reader.GetInt32(0),
-                        editionType = reader.GetString(1)
-                    };
+                        DBRow.ID = reader.GetInt32(0);
+                        DBRow.editionType = reader.GetString(1);
+                    }
                     return DBRow;
                 }
             }

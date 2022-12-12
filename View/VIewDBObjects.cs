@@ -14,7 +14,7 @@ namespace LibraryDB.View
     {
         public int choosenTableID;
 
-        public string[] bookLendingLabels = { "ID выдачи", "Библиотекарь", "Читатель", "Книга", "Дата выдачи", "Дата возврата" };
+        public string[] bookLendingLabels = { "ID выдачи", "Библиотекарь", "Читатель", "Книга", "Кол-во", "Дата выдачи", "Дата возврата" };
         public string[] bookLabels = { "ID книги", "Название книги", "Автор", "Жанр", "Издание", "Возрастной рейтинг",
         "Расположение", "ISBN", "Издатель", "Дата издания", "Кол-во стр.", "Стоимость (руб.)", "Кол-во" };
         public string[] readerLabels = { "ID читателя", "Фамилия", "Имя", "Отчество", "Дата рождения", "Адрес проживания", "Номер телефона", "Дата регистрации" };
@@ -25,7 +25,7 @@ namespace LibraryDB.View
         public string[] storageLabels = { "ID записи", "Расположение" };
 
         public DataTable chooseTable(string table)
-        {     
+        {
             DataTable dt = new DataTable();
             switch (table)
             {
@@ -76,10 +76,10 @@ namespace LibraryDB.View
             return dt;
         }
 
-        public DataTable searchRows(int tableID, string query)
+        public DataTable searchRows(string query)
         {
             DataTable dt = new DataTable();
-            switch (tableID)
+            switch (choosenTableID)
             {
                 case 1:
                     DBInteractionBookLending BookLendingsDB = new DBInteractionBookLending();
@@ -120,5 +120,55 @@ namespace LibraryDB.View
             return dt;
         }
 
+        public string[] getStringRow(int ID)
+        {
+            switch (choosenTableID)
+            {
+                case 1:
+                    DBInteractionBookLending BookLendingsDB = new DBInteractionBookLending();
+                    BookLending BL = BookLendingsDB.getRow(ID);
+                    string[] strBL = BL.convertToStrArr();
+                    return strBL;
+                case 2:
+                    DBInteractionBooks BooksDB = new DBInteractionBooks();
+                    Books BK = BooksDB.getRow(ID);
+                    string[] strBK = BK.convertToStrArr();
+                    return strBK;
+                case 3:
+                    DBInteractionReader ReadersDB = new DBInteractionReader();
+                    Reader RD = ReadersDB.getRow(ID);
+                    string[] strRD = RD.convertToStrArr();
+                    return strRD;
+                case 4:
+                    DBInteractionLibrarian LibrariansDB = new DBInteractionLibrarian();
+                    Librarian LB = LibrariansDB.getRow(ID);
+                    string[] strLB = LB.convertToStrArr();
+                    return strLB;
+                case 5:
+                    DBInteractionGenre GenresDB = new DBInteractionGenre();
+                    Genre GN = GenresDB.getRow(ID);
+                    string[] strGN = GN.convertToStrArr();
+                    return strGN;
+                case 6:
+                    DBInteractionEdition EditionsDB = new DBInteractionEdition();
+                    Edition ED = EditionsDB.getRow(ID);
+                    string[] strED = ED.convertToStrArr();
+                    return strED;
+                case 7:
+                    DBInteractionRating RatingsDB = new DBInteractionRating();
+                    Rating RT = RatingsDB.getRow(ID);
+                    string[] strRT = RT.convertToStrArr();
+                    return strRT;
+                case 8:
+                    DBIntegrationStorage StorageDB = new DBIntegrationStorage();
+                    Storage ST = StorageDB.getRow(ID);
+                    string[] strST = ST.convertToStrArr();
+                    return strST;
+                default:
+                    MessageBox.Show($"Возникла ошибка загрузки таблицы:\nНе удалось найти данные. Возможно, отсутствует подключение к серверу", "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string[] empty = new string[0];
+                    return empty;
+            }
+        }
     }
 }
