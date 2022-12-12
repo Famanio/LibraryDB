@@ -60,6 +60,7 @@ namespace LibraryDB.DB
                         DBRow.cost = reader.GetFloat(11);
                         DBRow.amount = reader.GetInt32(12);
                     }
+                    connection.Close();
                     return DBRow;
                 }
             }

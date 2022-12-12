@@ -52,6 +52,7 @@ namespace LibraryDB.DB
                         DBRow.dateOfIssue = reader.GetString(5);
                         DBRow.returnDate = reader.GetString(6);
                     }
+                    connection.Close();
                     return DBRow;
                 }
             }

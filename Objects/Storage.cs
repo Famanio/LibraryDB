@@ -19,10 +19,17 @@ namespace LibraryDB.Objects
 
         public Storage convertStrArrToObj(string[] obj, bool convert)
         {
-            Storage ST = new Storage();
-            ST.ID = Convert.ToInt32(obj[0]);
-            ST.storageLocation = obj[1];
-            return ST;
+            try
+            {
+                Storage ST = new Storage();
+                ST.ID = Convert.ToInt32(obj[0]);
+                ST.storageLocation = obj[1];
+                return ST;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

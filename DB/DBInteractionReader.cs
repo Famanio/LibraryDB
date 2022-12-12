@@ -53,6 +53,7 @@ namespace LibraryDB.DB
                         DBRow.phoneNumber = reader.GetString(6);
                         DBRow.regDate = reader.GetString(7);
                     }
+                    connection.Close();
                     return DBRow;
                 }
             }

@@ -40,6 +40,7 @@ namespace LibraryDB
                 {
                     string query = searchTextBox.Text;
                     query = System.Text.RegularExpressions.Regex.Replace(query, @"\s+", " ");
+                    query = query.Trim();
                     dt.Clear();
                     dt = view.searchRows(query);
                 }
@@ -60,7 +61,6 @@ namespace LibraryDB
                 {
                     int dgvID = (int)mainDGV.Rows[mainDGV.SelectedRows[0].Index].Cells[0].Value;
                     string[] dataDGV = new string[mainDGV.ColumnCount];
-                    objectDGV.Columns.Clear();
                     for (int i = 0; i < mainDGV.ColumnCount; i++)
                     {
                         objectDGV.Columns.Add("", "");
@@ -81,42 +81,70 @@ namespace LibraryDB
             try
             {
                 string[] obj = new string[mainDGV.ColumnCount];
-                int dgvID = (int)mainDGV.Rows[mainDGV.SelectedRows[0].Index].Cells[0].Value;
+                int dgvID = 0;
                 for (int i = 1; i <= obj.Length; i++)
                 {
-                    obj[i - 1] = this.Controls.Find($"textBox{i}", true)[0].Text;
+                    string elem = this.Controls.Find($"textBox{i}", true)[0].Text;
+                    elem = System.Text.RegularExpressions.Regex.Replace(elem, @"\s+", " ");
+                    obj[i - 1] = elem.Trim();
                 }
                 view.viewModeRowDB(obj, dgvID, VIewDBObjects.mode.add);
-                MessageBox.Show("Строка успешно добавлена", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException ex)
             {
                 MessageBox.Show($"Возникла ошибка добавления: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            dt.Clear();
+            clearEditing();
+            dt = view.chooseTable(selectTableCB.Text);
+            mainDGV.DataSource = dt;
+            
         }
 
         private void changeButton_Click(object sender, EventArgs e)
         {
             try
             {
-
+                string[] obj = new string[mainDGV.ColumnCount];
+                int dgvID = (int)mainDGV.Rows[mainDGV.SelectedRows[0].Index].Cells[0].Value;
+                for (int i = 1; i <= obj.Length; i++)
+                {
+                    string elem = this.Controls.Find($"textBox{i}", true)[0].Text;
+                    elem = System.Text.RegularExpressions.Regex.Replace(elem, @"\s+", " ");
+                    obj[i - 1] = elem.Trim();
+                }
+                view.viewModeRowDB(obj, dgvID, VIewDBObjects.mode.upd);
             }
             catch (MySqlException ex)
             {
                 MessageBox.Show($"Возникла ошибка при изменении: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            dt.Clear();
+            dt = view.chooseTable(selectTableCB.Text);
+            mainDGV.DataSource = dt;
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
             try
             {
-
+                string[] obj = new string[mainDGV.ColumnCount];
+                int dgvID = (int)mainDGV.Rows[mainDGV.SelectedRows[0].Index].Cells[0].Value;
+                for (int i = 1; i <= obj.Length; i++)
+                {
+                    string elem = this.Controls.Find($"textBox{i}", true)[0].Text;
+                    elem = System.Text.RegularExpressions.Regex.Replace(elem, @"\s+", " ");
+                    obj[i - 1] = elem.Trim();
+                }
+                view.viewModeRowDB(obj, dgvID, VIewDBObjects.mode.del);
             }
             catch (MySqlException ex)
             {
                 MessageBox.Show($"Возникла ошибка при удалении: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            dt.Clear();
+            dt = view.chooseTable(selectTableCB.Text);
+            mainDGV.DataSource = dt;
         }
 
         private void helpButton_Click(object sender, EventArgs e)
@@ -127,10 +155,8 @@ namespace LibraryDB
 
         private void loadEditing(int tableID, int rows)
         {
-            for (int i = 1; i <= rows; i++)
-            {
-                this.Controls.Find($"textBox{i}", true)[0].Text = null;
-            }
+            clearEditing();
+
             switch (tableID)
             {
                 case 1:
@@ -260,6 +286,16 @@ namespace LibraryDB
                 MessageBox.Show($"Возникла ошибка загрузки строки:\nНе удалось загрузить данные на редактирование", "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 string[] empty = new string[0];
                 return empty;
+            }
+        }
+
+        private void clearEditing()
+        {
+            objectDGV.Columns.Clear();
+
+            for (int i = 1; i <= 13; i++)
+            {
+                this.Controls.Find($"textBox{i}", true)[0].Text = null;
             }
         }
     }

@@ -19,10 +19,17 @@ namespace LibraryDB.Objects
 
         public Edition convertStrArrToObj(string[] obj, bool convert)
         {
-            Edition ED = new Edition();
-            ED.ID = Convert.ToInt32(obj[0]);
-            ED.editionType = obj[1];
-            return ED;
+            try
+            {
+                Edition ED = new Edition();
+                ED.ID = Convert.ToInt32(obj[0]);
+                ED.editionType = obj[1];
+                return ED;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

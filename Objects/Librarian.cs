@@ -21,12 +21,19 @@ namespace LibraryDB.Objects
 
         public Librarian convertStrArrToObj(string[] obj, bool convert)
         {
-            Librarian LB = new Librarian();
-            LB.ID = Convert.ToInt32(obj[0]);
-            LB.surname = obj[1];
-            LB.name = obj[2];
-            LB.patronymic = obj[3];
-            return LB;
+            try
+            {
+                Librarian LB = new Librarian();
+                LB.ID = Convert.ToInt32(obj[0]);
+                LB.surname = obj[1];
+                LB.name = obj[2];
+                LB.patronymic = obj[3];
+                return LB;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

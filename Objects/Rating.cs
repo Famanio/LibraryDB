@@ -19,10 +19,17 @@ namespace LibraryDB.Objects
 
         public Rating convertStrArrToObj(string[] obj, bool convert)
         {
-            Rating RT = new Rating();
-            RT.ID = Convert.ToInt32(obj[0]);
-            RT.ageRating = obj[1];
-            return RT;
+            try
+            {
+                Rating RT = new Rating();
+                RT.ID = Convert.ToInt32(obj[0]);
+                RT.ageRating = obj[1];
+                return RT;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

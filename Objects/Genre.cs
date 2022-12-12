@@ -20,10 +20,17 @@ namespace LibraryDB.Objects
 
         public Genre convertStrArrToObj(string[] obj, bool convert)
         {
-            Genre GN = new Genre();
-            GN.ID = Convert.ToInt32(obj[0]);
-            GN.genreName = obj[1];
-            return GN;
+            try
+            {
+                Genre GN = new Genre();
+                GN.ID = Convert.ToInt32(obj[0]);
+                GN.genreName = obj[1];
+                return GN;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

@@ -47,6 +47,7 @@ namespace LibraryDB.DB
                         DBRow.ID = reader.GetInt32(0);
                         DBRow.ageRating = reader.GetString(1);
                     }
+                    connection.Close();
                     return DBRow;
                 }
             }

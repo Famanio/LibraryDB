@@ -30,34 +30,41 @@ namespace LibraryDB.Objects
 
         public Books convertStrArrToObj(string[] obj, bool convert)
         {
-            Books BK = new Books();
-            BK.ID = Convert.ToInt32(obj[0]);
-            BK.bookName = obj[1];
-            BK.author = obj[2];
-            BK.genre = obj[3];
-            BK.edition = obj[4];
-            BK.rating = obj[5];
-            BK.storage = obj[6];
-            BK.ISBN = obj[7];
-            BK.publisher = obj[8];
-            if (convert == false)
+            try
             {
-                if (DateTime.TryParse(obj[9], out DateTime date))
+                Books BK = new Books();
+                BK.ID = Convert.ToInt32(obj[0]);
+                BK.bookName = obj[1];
+                BK.author = obj[2];
+                BK.genre = obj[3];
+                BK.edition = obj[4];
+                BK.rating = obj[5];
+                BK.storage = obj[6];
+                BK.ISBN = obj[7];
+                BK.publisher = obj[8];
+                if (convert == false)
                 {
-                    BK.pubDate = date.ToString("dd.MM.yyyy");
+                    if (DateTime.TryParse(obj[9], out DateTime date))
+                    {
+                        BK.pubDate = date.ToString("dd.MM.yyyy");
+                    }
                 }
+                else
+                {
+                    if (DateTime.TryParse(obj[9], out DateTime date))
+                    {
+                        BK.pubDate = date.ToString("yyyy-MM-dd");
+                    }
+                }
+                BK.numOfPages = Convert.ToInt32(obj[10]);
+                BK.cost = (float)Convert.ToDouble(obj[11]);
+                BK.amount = Convert.ToInt32(obj[12]);
+                return BK;
             }
-            else
+            catch (Exception)
             {
-                if (DateTime.TryParse(obj[9], out DateTime date))
-                {
-                    BK.pubDate = date.ToString("yyyy-MM-dd");
-                }
+                throw;
             }
-            BK.numOfPages = Convert.ToInt32(obj[10]);
-            BK.cost = (float)Convert.ToDouble(obj[11]);
-            BK.amount = Convert.ToInt32(obj[12]);
-            return BK;
         }
     }
 }

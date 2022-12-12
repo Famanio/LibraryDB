@@ -49,6 +49,7 @@ namespace LibraryDB.DB
                         DBRow.name = reader.GetString(2);
                         DBRow.patronymic = reader.GetString(3);
                     }
+                    connection.Close();
                     return DBRow;
                 }
             }
