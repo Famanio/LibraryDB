@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace LibraryDB.Objects
 {
-    internal interface IDBObject
+    internal interface IDBObject<out T>
     {
         public int ID { get; set; }
         public string[] convertToStrArr();
+        public T convertStrArrToObj(string[] obj, bool convert);
     }
 }

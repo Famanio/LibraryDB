@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryDB.Objects
 {
-    internal class Rating : IDBObject
+    internal class Rating : IDBObject<Rating>
     {
         public int ID { get; set; }
         public string ageRating { get; set; }
@@ -15,6 +15,14 @@ namespace LibraryDB.Objects
         {
             string[] arr = {ID.ToString(), ageRating};
             return arr;
+        }
+
+        public Rating convertStrArrToObj(string[] obj, bool convert)
+        {
+            Rating RT = new Rating();
+            RT.ID = Convert.ToInt32(obj[0]);
+            RT.ageRating = obj[1];
+            return RT;
         }
     }
 }

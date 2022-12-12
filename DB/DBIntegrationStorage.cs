@@ -83,7 +83,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = $"INSERT INTO Storage (storage_id, location) VALUES ('{item.ID}', '{item.storageLocation}')";
+                string sqlcmdString = $"INSERT INTO Storage (storage_id, location) VALUES (NULL, '{item.storageLocation}')";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();

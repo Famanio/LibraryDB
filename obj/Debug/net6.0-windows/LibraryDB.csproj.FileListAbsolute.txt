@@ -24,3 +24,4 @@ C:\Users\admin\Downloads\Курсач\LibraryDB\obj\Debug\net6.0-windows\refint\
 C:\Users\admin\Downloads\Курсач\LibraryDB\obj\Debug\net6.0-windows\LibraryDB.pdb
 C:\Users\admin\Downloads\Курсач\LibraryDB\obj\Debug\net6.0-windows\LibraryDB.genruntimeconfig.cache
 C:\Users\admin\Downloads\Курсач\LibraryDB\obj\Debug\net6.0-windows\ref\LibraryDB.dll
+C:\Users\admin\Downloads\Курсач\LibraryDB\obj\Debug\net6.0-windows\LibraryDB.Form2.resources

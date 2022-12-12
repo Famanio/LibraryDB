@@ -96,7 +96,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = $"CALL BookInsert('{item.ID}', '{item.genre}', '{item.edition}', '{item.rating}', '{item.storage}', '{item.ISBN}', '{item.publisher}', '{item.author}', '{item.bookName}', '{item.pubDate}', '{item.numOfPages}', '{item.cost}', '{item.amount}')";
+                string sqlcmdString = $"CALL BookInsert( '{item.genre}', '{item.edition}', '{item.rating}', '{item.storage}', '{item.ISBN}', '{item.publisher}', '{item.author}', '{item.bookName}', '{item.pubDate}', '{item.numOfPages}', '{item.cost}', '{item.amount}')";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();

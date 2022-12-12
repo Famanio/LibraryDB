@@ -28,6 +28,8 @@ namespace LibraryDB
                 MessageBox.Show($"Возникла ошибка загрузки: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             mainDGV.DataSource = dt;
+            objectDGV.Columns.Clear();
+            loadEditing(view.choosenTableID, mainDGV.ColumnCount);
         }
 
         private void searchTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -76,17 +78,170 @@ namespace LibraryDB
 
         private void addButton_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string[] obj = new string[mainDGV.ColumnCount];
+                int dgvID = (int)mainDGV.Rows[mainDGV.SelectedRows[0].Index].Cells[0].Value;
+                for (int i = 1; i <= obj.Length; i++)
+                {
+                    obj[i - 1] = this.Controls.Find($"textBox{i}", true)[0].Text;
+                }
+                view.viewModeRowDB(obj, dgvID, VIewDBObjects.mode.add);
+                MessageBox.Show("Строка успешно добавлена", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Возникла ошибка добавления: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void changeButton_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Возникла ошибка при изменении: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Возникла ошибка при удалении: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            Form2 newForm = new Form2();
+            newForm.Show();
+        }
+
+        private void loadEditing(int tableID, int rows)
+        {
+            for (int i = 1; i <= rows; i++)
+            {
+                this.Controls.Find($"textBox{i}", true)[0].Text = null;
+            }
+            switch (tableID)
+            {
+                case 1:
+                    for (int i = 1; i <= rows; i++)
+                    {
+                        this.Controls.Find($"label{i}", true)[0].Visible = true;
+                        this.Controls.Find($"label{i}", true)[0].Text = view.bookLendingLabels[i - 1];
+                        this.Controls.Find($"textBox{i}", true)[0].Visible = true;
+
+                    }
+                    for (int i = rows + 1; i <= 13; i++)
+                    {
+                        this.Controls.Find($"label{i}", true)[0].Visible = false;
+                        this.Controls.Find($"textBox{i}", true)[0].Visible = false;
+                    }
+                    break;
+                case 2:
+                    for (int i = 1; i <= rows; i++)
+                    {
+                        this.Controls.Find($"label{i}", true)[0].Visible = true;
+                        this.Controls.Find($"label{i}", true)[0].Text = view.bookLabels[i - 1];
+                        this.Controls.Find($"textBox{i}", true)[0].Visible = true;
+                    }
+                    for (int i = rows + 1; i <= 13; i++)
+                    {
+                        this.Controls.Find($"label{i}", true)[0].Visible = false;
+                        this.Controls.Find($"textBox{i}", true)[0].Visible = false;
+                    }
+                    break;
+                case 3:
+                    for (int i = 1; i <= rows; i++)
+                    {
+                        this.Controls.Find($"label{i}", true)[0].Visible = true;
+                        this.Controls.Find($"label{i}", true)[0].Text = view.readerLabels[i - 1];
+                        this.Controls.Find($"textBox{i}", true)[0].Visible = true;
+                    }
+                    for (int i = rows + 1; i <= 13; i++)
+                    {
+                        this.Controls.Find($"label{i}", true)[0].Visible = false;
+                        this.Controls.Find($"textBox{i}", true)[0].Visible = false;
+                    }
+                    break;
+                case 4:
+                    for (int i = 1; i <= rows; i++)
+                    {
+                        this.Controls.Find($"label{i}", true)[0].Visible = true;
+                        this.Controls.Find($"label{i}", true)[0].Text = view.librarianLabels[i - 1];
+                        this.Controls.Find($"textBox{i}", true)[0].Visible = true;
+                    }
+                    for (int i = rows + 1; i <= 13; i++)
+                    {
+                        this.Controls.Find($"label{i}", true)[0].Visible = false;
+                        this.Controls.Find($"textBox{i}", true)[0].Visible = false;
+                    }
+                    break;
+                case 5:
+                    for (int i = 1; i <= rows; i++)
+                    {
+                        this.Controls.Find($"label{i}", true)[0].Visible = true;
+                        this.Controls.Find($"label{i}", true)[0].Text = view.genreLabels[i - 1];
+                        this.Controls.Find($"textBox{i}", true)[0].Visible = true;
+                    }
+                    for (int i = rows + 1; i <= 13; i++)
+                    {
+                        this.Controls.Find($"label{i}", true)[0].Visible = false;
+                        this.Controls.Find($"textBox{i}", true)[0].Visible = false;
+                    }
+                    break;
+                case 6:
+                    for (int i = 1; i <= rows; i++)
+                    {
+                        this.Controls.Find($"label{i}", true)[0].Visible = true;
+                        this.Controls.Find($"label{i}", true)[0].Text = view.editionLabels[i - 1];
+                        this.Controls.Find($"textBox{i}", true)[0].Visible = true;
+                    }
+                    for (int i = rows + 1; i <= 13; i++)
+                    {
+                        this.Controls.Find($"label{i}", true)[0].Visible = false;
+                        this.Controls.Find($"textBox{i}", true)[0].Visible = false;
+                    }
+                    break;
+                case 7:
+                    for (int i = 1; i <= rows; i++)
+                    {
+                        this.Controls.Find($"label{i}", true)[0].Visible = true;
+                        this.Controls.Find($"label{i}", true)[0].Text = view.ratingLabels[i - 1];
+                        this.Controls.Find($"textBox{i}", true)[0].Visible = true;
+                    }
+                    for (int i = rows + 1; i <= 13; i++)
+                    {
+                        this.Controls.Find($"label{i}", true)[0].Visible = false;
+                        this.Controls.Find($"textBox{i}", true)[0].Visible = false;
+                    }
+                    break;
+                case 8:
+                    for (int i = 1; i <= rows; i++)
+                    {
+                        this.Controls.Find($"label{i}", true)[0].Visible = true;
+                        this.Controls.Find($"label{i}", true)[0].Text = view.storageLabels[i - 1];
+                        this.Controls.Find($"textBox{i}", true)[0].Visible = true;
+                    }
+                    for (int i = rows + 1; i <= 13; i++)
+                    {
+                        this.Controls.Find($"label{i}", true)[0].Visible = false;
+                        this.Controls.Find($"textBox{i}", true)[0].Visible = false;
+                    }
+                    break;
+                default:
+                    MessageBox.Show($"Возникла ошибка загрузки формы:\nНе удалось изменить данные на форме \"Редактирование\"", "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+            }
         }
 
         private string[] prepareEditing(int tableID, int objID, int length)
@@ -94,131 +249,9 @@ namespace LibraryDB
             try
             {
                 string[] obj = view.getStringRow(objID);
-                switch (tableID)
+                for (int i = 1; i <= length; i++)
                 {
-                    case 1:
-                        for (int i = 1; i <= length; i++)
-                        {
-                            this.Controls.Find($"label{i}", true)[0].Visible = true;
-                            this.Controls.Find($"textBox{i}", true)[0].Visible = true;
-
-                            this.Controls.Find($"label{i}", true)[0].Text = view.bookLendingLabels[i - 1];
-                            this.Controls.Find($"textBox{i}", true)[0].Text = obj[i - 1];
-                        }
-                        for (int i = length + 1; i <= 13; i++)
-                        {
-                            this.Controls.Find($"label{i}", true)[0].Visible = false;
-                            this.Controls.Find($"textBox{i}", true)[0].Visible = false;
-                        }
-                        break;
-                    case 2:
-                        for (int i = 1; i <= length; i++)
-                        {
-                            this.Controls.Find($"label{i}", true)[0].Visible = true;
-                            this.Controls.Find($"textBox{i}", true)[0].Visible = true;
-
-                            this.Controls.Find($"label{i}", true)[0].Text = view.bookLabels[i - 1];
-                            this.Controls.Find($"textBox{i}", true)[0].Text = obj[i - 1];
-                        }
-                        for (int i = length + 1; i <= 13; i++)
-                        {
-                            this.Controls.Find($"label{i}", true)[0].Visible = false;
-                            this.Controls.Find($"textBox{i}", true)[0].Visible = false;
-                        }
-                        break;
-                    case 3:
-                        for (int i = 1; i <= length; i++)
-                        {
-                            this.Controls.Find($"label{i}", true)[0].Visible = true;
-                            this.Controls.Find($"textBox{i}", true)[0].Visible = true;
-
-                            this.Controls.Find($"label{i}", true)[0].Text = view.readerLabels[i - 1];
-                            this.Controls.Find($"textBox{i}", true)[0].Text = obj[i - 1];
-                        }
-                        for (int i = length + 1; i <= 13; i++)
-                        {
-                            this.Controls.Find($"label{i}", true)[0].Visible = false;
-                            this.Controls.Find($"textBox{i}", true)[0].Visible = false;
-                        }
-                        break;
-                    case 4:
-                        for (int i = 1; i <= length; i++)
-                        {
-                            this.Controls.Find($"label{i}", true)[0].Visible = true;
-                            this.Controls.Find($"textBox{i}", true)[0].Visible = true;
-
-                            this.Controls.Find($"label{i}", true)[0].Text = view.librarianLabels[i - 1];
-                            this.Controls.Find($"textBox{i}", true)[0].Text = obj[i - 1];
-                        }
-                        for (int i = length + 1; i <= 13; i++)
-                        {
-                            this.Controls.Find($"label{i}", true)[0].Visible = false;
-                            this.Controls.Find($"textBox{i}", true)[0].Visible = false;
-                        }
-                        break;
-                    case 5:
-                        for (int i = 1; i <= length; i++)
-                        {
-                            this.Controls.Find($"label{i}", true)[0].Visible = true;
-                            this.Controls.Find($"textBox{i}", true)[0].Visible = true;
-
-                            this.Controls.Find($"label{i}", true)[0].Text = view.genreLabels[i - 1];
-                            this.Controls.Find($"textBox{i}", true)[0].Text = obj[i - 1];
-                        }
-                        for (int i = length + 1; i <= 13; i++)
-                        {
-                            this.Controls.Find($"label{i}", true)[0].Visible = false;
-                            this.Controls.Find($"textBox{i}", true)[0].Visible = false;
-                        }
-                        break;
-                    case 6:
-                        for (int i = 1; i <= length; i++)
-                        {
-                            this.Controls.Find($"label{i}", true)[0].Visible = true;
-                            this.Controls.Find($"textBox{i}", true)[0].Visible = true;
-
-                            this.Controls.Find($"label{i}", true)[0].Text = view.editionLabels[i - 1];
-                            this.Controls.Find($"textBox{i}", true)[0].Text = obj[i - 1];
-                        }
-                        for (int i = length + 1; i <= 13; i++)
-                        {
-                            this.Controls.Find($"label{i}", true)[0].Visible = false;
-                            this.Controls.Find($"textBox{i}", true)[0].Visible = false;
-                        }
-                        break;
-                    case 7:
-                        for (int i = 1; i <= length; i++)
-                        {
-                            this.Controls.Find($"label{i}", true)[0].Visible = true;
-                            this.Controls.Find($"textBox{i}", true)[0].Visible = true;
-
-                            this.Controls.Find($"label{i}", true)[0].Text = view.ratingLabels[i - 1];
-                            this.Controls.Find($"textBox{i}", true)[0].Text = obj[i - 1];
-                        }
-                        for (int i = length + 1; i <= 13; i++)
-                        {
-                            this.Controls.Find($"label{i}", true)[0].Visible = false;
-                            this.Controls.Find($"textBox{i}", true)[0].Visible = false;
-                        }
-                        break;
-                    case 8:
-                        for (int i = 1; i <= length; i++)
-                        {
-                            this.Controls.Find($"label{i}", true)[0].Visible = true;
-                            this.Controls.Find($"textBox{i}", true)[0].Visible = true;
-
-                            this.Controls.Find($"label{i}", true)[0].Text = view.storageLabels[i - 1];
-                            this.Controls.Find($"textBox{i}", true)[0].Text = obj[i - 1];
-                        }
-                        for (int i = length + 1; i <= 13; i++)
-                        {
-                            this.Controls.Find($"label{i}", true)[0].Visible = false;
-                            this.Controls.Find($"textBox{i}", true)[0].Visible = false;
-                        }
-                        break;
-                    default:
-                        MessageBox.Show($"Возникла ошибка загрузки строки:\nНе удалось загрузить данные на редактирование", "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        break;
+                    this.Controls.Find($"textBox{i}", true)[0].Text = obj[i - 1];
                 }
                 return obj;
             }

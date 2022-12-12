@@ -83,7 +83,7 @@ namespace LibraryDB.DB
             {
                 MySqlConnection connection = new MySqlConnection(connString);
                 connection.Open();
-                string sqlcmdString = $"INSERT INTO Edition (edition_id, type) VALUES ('{item.ID}', '{item.editionType}')";
+                string sqlcmdString = $"INSERT INTO Edition (edition_id, type) VALUES (NULL, '{item.editionType}')";
                 MySqlCommand sqlcmd = new MySqlCommand(sqlcmdString, connection);
                 sqlcmd.ExecuteNonQuery();
                 connection.Close();

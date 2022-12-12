@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace LibraryDB.DB
 {
-    abstract class DBInteraction<T> where T : IDBObject //все, ко осуществляет интерфейс IDBObject
+    abstract class DBInteraction<T> where T : IDBObject<T>
     {
         public static string connString = "server=localhost;port=3306;username=root;password=root;database=Library";
 

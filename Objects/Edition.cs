@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryDB.Objects
 {
-    internal class Edition : IDBObject
+    internal class Edition : IDBObject<Edition>
     {
         public int ID { get; set; }
         public string editionType { get; set; }
@@ -15,6 +15,14 @@ namespace LibraryDB.Objects
         {
             string[] arr = { ID.ToString(), editionType };
             return arr;
+        }
+
+        public Edition convertStrArrToObj(string[] obj, bool convert)
+        {
+            Edition ED = new Edition();
+            ED.ID = Convert.ToInt32(obj[0]);
+            ED.editionType = obj[1];
+            return ED;
         }
     }
 }
