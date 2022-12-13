@@ -65,12 +65,17 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.objectDGV = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.helpButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.changeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.reqDGV = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.req3Button = new System.Windows.Forms.Button();
+            this.req2Button = new System.Windows.Forms.Button();
+            this.req1Button = new System.Windows.Forms.Button();
             this.infoLabel = new System.Windows.Forms.Label();
-            this.helpButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainDGV)).BeginInit();
@@ -78,6 +83,9 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectDGV)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reqDGV)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // selectTableCB
@@ -229,8 +237,9 @@
             this.textBox13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox13.Location = new System.Drawing.Point(3, 704);
+            this.textBox13.MinimumSize = new System.Drawing.Size(603, 27);
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(589, 27);
+            this.textBox13.Size = new System.Drawing.Size(603, 27);
             this.textBox13.TabIndex = 30;
             // 
             // label12
@@ -248,8 +257,9 @@
             this.textBox12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox12.Location = new System.Drawing.Point(3, 648);
+            this.textBox12.MinimumSize = new System.Drawing.Size(603, 27);
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(589, 27);
+            this.textBox12.Size = new System.Drawing.Size(603, 27);
             this.textBox12.TabIndex = 28;
             // 
             // label11
@@ -267,8 +277,9 @@
             this.textBox11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox11.Location = new System.Drawing.Point(3, 592);
+            this.textBox11.MinimumSize = new System.Drawing.Size(603, 27);
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(589, 27);
+            this.textBox11.Size = new System.Drawing.Size(603, 27);
             this.textBox11.TabIndex = 26;
             // 
             // label10
@@ -286,8 +297,9 @@
             this.textBox10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox10.Location = new System.Drawing.Point(3, 536);
+            this.textBox10.MinimumSize = new System.Drawing.Size(603, 27);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(589, 27);
+            this.textBox10.Size = new System.Drawing.Size(603, 27);
             this.textBox10.TabIndex = 24;
             // 
             // label9
@@ -305,8 +317,9 @@
             this.textBox9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox9.Location = new System.Drawing.Point(3, 480);
+            this.textBox9.MinimumSize = new System.Drawing.Size(603, 27);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(589, 27);
+            this.textBox9.Size = new System.Drawing.Size(603, 27);
             this.textBox9.TabIndex = 22;
             // 
             // label8
@@ -324,8 +337,9 @@
             this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox8.Location = new System.Drawing.Point(3, 424);
+            this.textBox8.MinimumSize = new System.Drawing.Size(603, 27);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(589, 27);
+            this.textBox8.Size = new System.Drawing.Size(603, 27);
             this.textBox8.TabIndex = 20;
             // 
             // label7
@@ -343,8 +357,9 @@
             this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox7.Location = new System.Drawing.Point(3, 368);
+            this.textBox7.MinimumSize = new System.Drawing.Size(603, 27);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(589, 27);
+            this.textBox7.Size = new System.Drawing.Size(603, 27);
             this.textBox7.TabIndex = 18;
             // 
             // label6
@@ -362,8 +377,9 @@
             this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox6.Location = new System.Drawing.Point(3, 312);
+            this.textBox6.MinimumSize = new System.Drawing.Size(603, 27);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(589, 27);
+            this.textBox6.Size = new System.Drawing.Size(603, 27);
             this.textBox6.TabIndex = 16;
             // 
             // label5
@@ -381,8 +397,9 @@
             this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox5.Location = new System.Drawing.Point(3, 256);
+            this.textBox5.MinimumSize = new System.Drawing.Size(603, 27);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(589, 27);
+            this.textBox5.Size = new System.Drawing.Size(603, 27);
             this.textBox5.TabIndex = 14;
             // 
             // label4
@@ -400,8 +417,9 @@
             this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox4.Location = new System.Drawing.Point(3, 200);
+            this.textBox4.MinimumSize = new System.Drawing.Size(603, 27);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(589, 27);
+            this.textBox4.Size = new System.Drawing.Size(603, 27);
             this.textBox4.TabIndex = 12;
             // 
             // label3
@@ -419,8 +437,9 @@
             this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox3.Location = new System.Drawing.Point(3, 144);
+            this.textBox3.MinimumSize = new System.Drawing.Size(603, 27);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(589, 27);
+            this.textBox3.Size = new System.Drawing.Size(603, 27);
             this.textBox3.TabIndex = 10;
             // 
             // label2
@@ -438,8 +457,9 @@
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.Location = new System.Drawing.Point(3, 88);
+            this.textBox2.MinimumSize = new System.Drawing.Size(603, 27);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(589, 27);
+            this.textBox2.Size = new System.Drawing.Size(603, 27);
             this.textBox2.TabIndex = 8;
             // 
             // label1
@@ -457,8 +477,9 @@
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(3, 32);
+            this.textBox1.MinimumSize = new System.Drawing.Size(603, 27);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(589, 27);
+            this.textBox1.Size = new System.Drawing.Size(603, 27);
             this.textBox1.TabIndex = 6;
             // 
             // objectDGV
@@ -493,6 +514,18 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Запись";
+            // 
+            // helpButton
+            // 
+            this.helpButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.helpButton.Location = new System.Drawing.Point(17, 325);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(180, 58);
+            this.helpButton.TabIndex = 3;
+            this.helpButton.Text = "Справка";
+            this.helpButton.UseVisualStyleBackColor = true;
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
             // 
             // deleteButton
             // 
@@ -532,12 +565,82 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.reqDGV);
+            this.tabPage3.Controls.Add(this.groupBox2);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(889, 465);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Запросы";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // reqDGV
+            // 
+            this.reqDGV.AllowUserToAddRows = false;
+            this.reqDGV.AllowUserToDeleteRows = false;
+            this.reqDGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.reqDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.reqDGV.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.reqDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.reqDGV.Location = new System.Drawing.Point(224, 3);
+            this.reqDGV.Name = "reqDGV";
+            this.reqDGV.ReadOnly = true;
+            this.reqDGV.RowHeadersWidth = 51;
+            this.reqDGV.RowTemplate.Height = 29;
+            this.reqDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.reqDGV.Size = new System.Drawing.Size(662, 459);
+            this.reqDGV.TabIndex = 4;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Controls.Add(this.req3Button);
+            this.groupBox2.Controls.Add(this.req2Button);
+            this.groupBox2.Controls.Add(this.req1Button);
+            this.groupBox2.Location = new System.Drawing.Point(5, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(213, 459);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            // 
+            // req3Button
+            // 
+            this.req3Button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.req3Button.Location = new System.Drawing.Point(6, 179);
+            this.req3Button.Name = "req3Button";
+            this.req3Button.Size = new System.Drawing.Size(193, 58);
+            this.req3Button.TabIndex = 2;
+            this.req3Button.Text = "Отсутствующие книги";
+            this.req3Button.UseVisualStyleBackColor = true;
+            this.req3Button.Click += new System.EventHandler(this.req3Button_Click);
+            // 
+            // req2Button
+            // 
+            this.req2Button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.req2Button.Location = new System.Drawing.Point(6, 101);
+            this.req2Button.Name = "req2Button";
+            this.req2Button.Size = new System.Drawing.Size(193, 58);
+            this.req2Button.TabIndex = 1;
+            this.req2Button.Text = "Несовершеннолетние";
+            this.req2Button.UseVisualStyleBackColor = true;
+            this.req2Button.Click += new System.EventHandler(this.req2Button_Click);
+            // 
+            // req1Button
+            // 
+            this.req1Button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.req1Button.Location = new System.Drawing.Point(6, 26);
+            this.req1Button.Name = "req1Button";
+            this.req1Button.Size = new System.Drawing.Size(193, 58);
+            this.req1Button.TabIndex = 0;
+            this.req1Button.Text = "Должники";
+            this.req1Button.UseVisualStyleBackColor = true;
+            this.req1Button.Click += new System.EventHandler(this.req1Button_Click);
             // 
             // infoLabel
             // 
@@ -548,18 +651,6 @@
             this.infoLabel.Size = new System.Drawing.Size(138, 23);
             this.infoLabel.TabIndex = 4;
             this.infoLabel.Text = "Выбор таблицы:";
-            // 
-            // helpButton
-            // 
-            this.helpButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.helpButton.Location = new System.Drawing.Point(17, 325);
-            this.helpButton.Name = "helpButton";
-            this.helpButton.Size = new System.Drawing.Size(180, 58);
-            this.helpButton.TabIndex = 3;
-            this.helpButton.Text = "Справка";
-            this.helpButton.UseVisualStyleBackColor = true;
-            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
             // 
             // Form1
             // 
@@ -583,6 +674,9 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectDGV)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.reqDGV)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -632,5 +726,10 @@
         private Label label11;
         private TextBox textBox11;
         private Button helpButton;
+        private GroupBox groupBox2;
+        private Button req3Button;
+        private Button req2Button;
+        private Button req1Button;
+        private DataGridView reqDGV;
     }
 }

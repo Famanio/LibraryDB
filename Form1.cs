@@ -11,6 +11,7 @@ namespace LibraryDB
         int dgvID;
         DataTable dt = new DataTable();
         VIewDBObjects view = new VIewDBObjects();
+        DBExtraReqRequests req = new DBExtraReqRequests();
 
         public Form1()
         {
@@ -154,6 +155,45 @@ namespace LibraryDB
         {
             Form2 newForm = new Form2();
             newForm.Show();
+        }
+
+        private void req1Button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                reqDGV.DataSource = null;
+                reqDGV.DataSource = req.getDebtors();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Возникла ошибка при загрузке: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void req2Button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                reqDGV.DataSource = null;
+                reqDGV.DataSource = req.getUnderageReaders();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Возникла ошибка при загрузке: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void req3Button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                reqDGV.DataSource = null;
+                reqDGV.DataSource = req.getEndedBooks();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Возникла ошибка при загрузке: {ex}", "Ошибка сервера", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void loadEditing(int tableID, int rows)
