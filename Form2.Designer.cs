@@ -52,7 +52,7 @@
             this.helpDGV.ReadOnly = true;
             this.helpDGV.RowHeadersWidth = 51;
             this.helpDGV.RowTemplate.Height = 29;
-            this.helpDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.helpDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.helpDGV.Size = new System.Drawing.Size(794, 456);
             this.helpDGV.TabIndex = 3;
             // 
